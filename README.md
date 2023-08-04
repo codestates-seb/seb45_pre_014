@@ -18,7 +18,7 @@
 ## 💼 Team
 
 
-| 홍기현<br>(BE, 팀장) | 유주성<br>(FE, 부팀장) | 김종범<br>(BE) | 황현서<br>(FE) |박아름<br>(BE)                                                                                                 | 김동윤 <br>(FE) |
+| 홍기현<br>(BE, 팀장) | 유주성<br>(FE, 부팀장) | 김종범<br>(BE) | 황현서<br>(FE) |박아름<br>(BE)| 김동윤 <br>(FE) |
 | :---: | :---: | :---: | :---: |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:| :---: |
 | <img alt="김다함" src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2F3y87K%2FbtslB0kwwQs%2FPowaj9TrHGhLMJ2lHHMnwK%2Fimg.png" height="100" width="100"> | <img alt="유길종" src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbpHcpi%2Fbtsls52mE8k%2FeJ8LNArF8Suk4KlnGUosC0%2Fimg.png" height="100" width="100"> | <img alt="조혜진" src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbNFrxB%2FbtslwoT28Wb%2FK9DRPPyvRIdhO4zl0JKnD1%2Fimg.png" height="100" width="100"> | <img alt="김민성" src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FKcgr9%2FbtsluhOLq6v%2FqcNkU1zBDeO5tXOcac0OC1%2Fimg.png" height="100" width="100"> | <img alt="정민지" src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FL3ahl%2FbtsluVdBmQv%2FLdiEHMVLFQy49GIdKduE10%2Fimg.png" height="100" width="100"> | <img alt="이하루" src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbNuZCr%2FbtslA5l72jp%2FvU4BFyw87WcmvaDWSbE1YK%2Fimg.png" height="100" width="100"> 
 |  다함님이 다함  | 그저 빛<br> | 마하 속도로 코딩<br> | 로그인 수문장<br> |                                                                                            4개국어 마스터<br> 에러 마스터                                                                                             | 서버 마스터 <br> |
@@ -30,12 +30,12 @@
 
 |name|Github|
 |:---:|:---|
-|김다함| [@Kim-DaHam](https://github.com/Kim-DaHam) |
-|유길종| [@YuGilJong](https://github.com/XionWCFM) |
-|조혜진| [@Emma-Hyejin](https://github.com/Emma-Hyejin) | 
-|김민성| [@minseong3](https://github.com/minseong3) |
-|정민지| [@jmjgirl](https://github.com/jmjgirl) | 
-|이하루| [@haruday97](https://github.com/haruday97) |
+|홍기현| [@Kim-DaHam](https://github.com/Kim-DaHam) |
+|유주성| [@YuGilJong](https://github.com/XionWCFM) |
+|김종범| [@Emma-Hyejin](https://github.com/Emma-Hyejin) | 
+|황현서| [@minseong3](https://github.com/minseong3) |
+|박아름| [@jmjgirl](https://github.com/jmjgirl) | 
+|김동윤| [@dongyunkim96](https://github.com/dongyunkim96) |
 
 
 
