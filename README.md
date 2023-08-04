@@ -22,7 +22,7 @@
 | :---: | :---: | :---: | :---: |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:| :---: |
 | <img alt="홍기현" src="https://cdn.discordapp.com/attachments/1136889516251173008/1136931592389009480/1691135775291.png" height="100" width="100"> | <img alt="유주성" src="https://cdn.discordapp.com/attachments/1136889516251173008/1136934796405260288/image_1.png" height="100" width="100"> | <img alt="김종범" src="https://cdn.discordapp.com/attachments/1136889516251173008/1136935010637709402/IMG_4927.png" height="100" width="100"> | <img alt="황현서" src="https://cdn.discordapp.com/attachments/1136889516251173008/1136928716790972507/KakaoTalk_20230804_164740236.png" height="100" width="100"> | <img alt="박아름" src="https://cdn.discordapp.com/attachments/1136889516251173008/1136928878863061122/Untitled.png" height="100" width="100"> | <img alt="김동윤" src="https://cdn.discordapp.com/attachments/1136889516251173008/1136933170802081853/a6fd086f14c3a2390b36713ad66a7c74-sticker.png" height="100" width="100"> 
 |    | <br> | <br> | <br> |   <br>   |  <br> |
-|  | ||||| |
+|  |  <br> | <br> | <br> | <br> | <br> |  <br> |
 
 
 <br/>
