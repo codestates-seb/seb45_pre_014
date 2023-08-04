@@ -30,11 +30,11 @@
 
 |name|Github|
 |:---:|:---|
-|홍기현| [@Kim-DaHam](https://github.com/Kim-DaHam) |
-|유주성| [@YuGilJong](https://github.com/XionWCFM) |
-|김종범| [@Emma-Hyejin](https://github.com/Emma-Hyejin) | 
-|황현서| [@minseong3](https://github.com/minseong3) |
-|박아름| [@jmjgirl](https://github.com/jmjgirl) | 
+|홍기현| [@KIHYUN940](https://github.com/KIHYUN940) |
+|유주성| [@Juseong-Yu](https://github.com/Juseong-Yu) |
+|김종범| [@kjb1212](https://github.com/kjb1212) | 
+|황현서| [@HwangHyen](https://github.com/HwangHyen) |
+|박아름| [@ararp1006](https://github.com/ararp1006) | 
 |김동윤| [@dongyunkim96](https://github.com/dongyunkim96) |
 
 
