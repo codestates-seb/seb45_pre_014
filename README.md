@@ -37,7 +37,18 @@
 |황현서| [@HwangHyen](https://github.com/HwangHyen) |
 |박아름| [@ararp1006](https://github.com/ararp1006) | 
 |김동윤| [@dongyunkim96](https://github.com/dongyunkim96) |
-
+<br>
+## 커뮤니케이션
+- 소통 코어타임
+- 오전 10:00 ~ 10:30
+- 오후 5:00 ~ 6:00
+- 디스코드로 소통
+- 서로 존칭어 사용하기 (ㅁㅁㅁ 님)
+-미참일정 공유 해주기(각 팀장, 부팀장님께 공유)
+-서로 못하더라도 격려해주기
+-데드라인 잘 지켜서 완성 시키기
+-건강하고 화목하게 프로젝트 진행하기
+<br>
 ## branch 규칙
 - `main` : 배포 브랜치
 - `dev` : 개발 병합 브랜치
