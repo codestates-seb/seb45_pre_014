@@ -38,6 +38,7 @@
 |박아름| [@ararp1006](https://github.com/ararp1006) | 
 |김동윤| [@dongyunkim96](https://github.com/dongyunkim96) |
 <br>
+
 ## 커뮤니케이션
 - 소통 코어타임
 - 오전 10:00 ~ 10:30
