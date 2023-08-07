@@ -13,6 +13,7 @@
 - **`팀원` :** 홍기현(팀장), 유주성(부팀장), 김종범, 황현서, 박아름, 김동윤
 - **`배포 링크` :** 
 
+
 <br/>
 
 ## 💼 Team
@@ -37,7 +38,12 @@
 |박아름| [@ararp1006](https://github.com/ararp1006) | 
 |김동윤| [@dongyunkim96](https://github.com/dongyunkim96) |
 
-
+## branch 규칙
+- `main` : 배포 브랜치
+- `dev` : 개발 병합 브랜치
+- `feDev` : 프론트 개발 브랜치
+- `beDev` : 백 개발 브랜치
+- `feat/개발기능이름/#이슈번호` : 개인 기능 개발 브랜치 ex) `feat/example/#1`
 
 <br/>
 
