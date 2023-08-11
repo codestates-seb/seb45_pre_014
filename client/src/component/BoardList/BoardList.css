@@ -1,0 +1,16 @@
+.boardTitle_viewcount_container{
+  margin-left: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+}
+
+.ownerid_lastanswer_container{
+  margin-right: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 80px;
+  margin-top: 130px;
+}
+

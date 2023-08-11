@@ -1,0 +1,29 @@
+.board_note{
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.board_note_container{
+  width: 60vw;
+  display: flex;
+  flex-direction: column;
+  margin-left: 10vw;
+}
+
+.deletepopuptrue{
+  background-color:rgba(0, 0, 0, 0.8);
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.deletepopupfalse{
+  display: none;
+}

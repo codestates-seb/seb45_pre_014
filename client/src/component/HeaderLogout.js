@@ -153,7 +153,10 @@ const HeaderLogout = () => {
             className={isFocused ? "searchFocus" : ""}
           />
           <SearchBoxIcon>
-            <HiMagnifyingGlass size={20} />
+            <Link to='/board'>
+              <HiMagnifyingGlass size={20} />
+            </Link>
+            
           </SearchBoxIcon>
           <SearchBoxModal isFocused={isFocused} />
         </div>
