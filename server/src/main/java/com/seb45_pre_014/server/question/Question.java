@@ -17,26 +17,45 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Entity
 public class Question {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long question_id;
 
-    @Column( length = 50,nullable = false)
+    private Long questionId;
+
     private String title;
 
-    @Column( columnDefinition = "TEXT",nullable = false)
     private String content;
 
-    @Column(nullable = false)
-    private int count;
+    private int viewCount;
 
-    @Column(nullable = false)
-    private LocalDateTime created_at;
+    private LocalDateTime createdAt;
 
-    @ManyToOne
-    @JoinColumn(name = "member_id")
-    private Member member;
 
-    @OneToOne(mappedBy = "question", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Comment comment; // 질문이 삭제되면 답변도 삭제되게
+
+
+
+
+
+
+
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    private Long question_id;
+//
+//    @Column( length = 50,nullable = false)
+//    private String title;
+//
+//    @Column( columnDefinition = "TEXT",nullable = false)
+//    private String content;
+//
+//    @Column(nullable = false)
+//    private int count;
+//
+//    @Column(nullable = false)
+//    private LocalDateTime created_at;
+
+//    @ManyToOne
+//    @JoinColumn(name = "member_id")
+//    private Member member;
+//
+//    @OneToOne(mappedBy = "question", cascade = CascadeType.ALL, orphanRemoval = true)
+//    private Comment comment; // 질문이 삭제되면 답변도 삭제되게
 }

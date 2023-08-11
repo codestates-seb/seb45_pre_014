@@ -8,4 +8,5 @@ public class HomeController {
     //메인화면(get) /home
     //구글로그인 요청(get) /login/gogle
     //구글로그인/회원가입수행(post) /login/gogle/callback
+
 }
