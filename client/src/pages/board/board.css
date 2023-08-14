@@ -2,7 +2,7 @@
   width: 100vw;
   display: flex;
   align-items: center;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
 }
 .board_container{
@@ -10,7 +10,6 @@
   max-width: 890px;
   display: flex;
   flex-direction: column;
-  margin-left: 10vw;
 }
 
 .filter_container{

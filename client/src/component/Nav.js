@@ -7,7 +7,8 @@ export const DivContainer = styled.div`
   width: 200px;
   float: left;
   display: inline;
-  border-right: 1px solid #e1e2e5;
+  margin-bottom: auto;
+  margin-top: 21px;
   li {
     list-style: none;
   }

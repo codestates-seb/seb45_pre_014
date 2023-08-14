@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';//답변하기 누르면 리렌더�
 import './board_note.css';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import Nav from '../../component/Nav';
 
 const BoardNoteHead = styled.div`
   display: flex;
@@ -111,6 +112,7 @@ export function BoardNote(){
 
   return (
     <div className='board_note'>
+      <Nav />
       <div className='board_note_container'>
         <BoardNoteHead>
           <div className='title_andelse'>

@@ -2,7 +2,7 @@
   width: 100vw;
   display: flex;
   align-items: center;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
 }
 
@@ -10,7 +10,6 @@
   width: 60vw;
   display: flex;
   flex-direction: column;
-  margin-left: 10vw;
 }
 
 .deletepopuptrue{
