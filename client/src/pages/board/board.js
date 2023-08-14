@@ -5,6 +5,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { BoardList } from '../../component/BoardList/BoardList';
 import axios from 'axios';
+import Nav from '../../component/Nav'
 
 
 const FilterSearch = styled.div`
@@ -79,6 +80,7 @@ export function Board( {search} ){
   arr = paginationarr.slice((page-1)*10,page*10)
   return(
     <div className = 'board'>
+      <Nav />
     <main className='board_container'>
       <div className='filter_container'>
         <FilterSearch className={filter === 'new' ? 'filterselected' : {}} onClick={()=>setfilter('new')}>최신순</FilterSearch>
