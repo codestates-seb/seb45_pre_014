@@ -142,7 +142,7 @@ const HeaderLogout = () => {
           <span>Stack overflow</span>
         </Mainlogo>
         <Link to="/introduce">
-          <ProductBtn>About</ProductBtn>
+          <ProductBtn>Product</ProductBtn>
         </Link>
         <div className="searchBoxWrap">
           <SearchBox

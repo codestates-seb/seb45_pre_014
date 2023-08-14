@@ -9,7 +9,6 @@ function LoginPage() {
           <header>
           </header>
           <main>
-            {/* <Nav /> */}
             <LoginPageBox>
               <LoginBox>
                 <LoginLogo href="#">
