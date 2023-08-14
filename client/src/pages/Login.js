@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { FcGoogle } from "react-icons/fc";
-import HeaderLogout from "../component/HeaderLogout";
 import TopLogo from "../assets/Stack_Overflow_icon.png";
 import { Link } from "react-router-dom";
 
@@ -8,7 +7,6 @@ function LoginPage() {
     return (
         <>
           <header>
-            <HeaderLogout />
           </header>
           <main>
             {/* <Nav /> */}

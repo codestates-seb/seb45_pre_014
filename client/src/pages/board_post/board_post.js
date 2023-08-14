@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import './board_post.css'
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import  HeaderLogout  from '../../component/HeaderLogout';
 const BoardPosth1 = styled.h1`
   margin-right: auto;
 `
@@ -43,7 +42,6 @@ export function BoardPost(){
   }
   return (
     <div className = 'board_post'>
-      <HeaderLogout />
       <main className='board_post_container'>
         <BoardPosth1>질문하기</BoardPosth1>
         <BoardPostForm onSubmit={board_post_post}>

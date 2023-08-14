@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import { useEffect, useState } from 'react';//답변하기 누르면 리렌더링 되야함
 import './board_note.css';
 import { Link } from 'react-router-dom';
-import  HeaderLogout  from '../../component/HeaderLogout';
 
 const BoardNoteHead = styled.div`
   display: flex;
@@ -88,7 +87,6 @@ export function BoardNote(){
 
   return (
     <div className='board_note'>
-      <HeaderLogout />
       <div className='board_note_container'>
         <BoardNoteHead>
           <div className='title_andelse'>
