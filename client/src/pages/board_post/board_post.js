@@ -38,7 +38,9 @@ export function BoardPost(){
   const [problem, setProblem] = useState('');
 
   function board_post_post(){
-    
+    // axios.post('http://localhost:4000',{
+    //   body: boardNoteData
+    // })
   }
   return (
     <div className = 'board_post'>
@@ -53,7 +55,7 @@ export function BoardPost(){
             <BoardPostTextLabel>문제가 무엇인가요?</BoardPostTextLabel>
             <BoardPostText cols="106" rows="20" name='board_post_title' onChange={(event) => setProblem(event.target.value)}></BoardPostText>
           </div>
-          <Link to='/board' className='board_post_question'>질문하기</Link>
+          <Link to='/board' className='board_post_question' onClick={board_post_post}>질문하기</Link>
         </BoardPostForm>
       </main>
     </div>

@@ -11,7 +11,6 @@ const Header = styled.header`
   border-bottom: 1px solid #ccc;
   background-color: #fff;
   z-index: 10;
-
   a {
     text-decoration: none;
   }
@@ -125,9 +124,9 @@ const SignupBtn = styled(LoginBtn)`
   }
 `;
 
-const HeaderLogout = () => {
+const HeaderLogout = ({setSearch}) => {
   const [isFocused, setIsFocused] = useState(false);
-
+  const [insearchbox, setInSearchbox] = useState('')
   const handleSearchFocus = () => {
     setIsFocused(!isFocused);
   };
@@ -151,12 +150,12 @@ const HeaderLogout = () => {
             onFocus={handleSearchFocus}
             onBlur={handleSearchFocus}
             className={isFocused ? "searchFocus" : ""}
+            onChange={(event)=>setInSearchbox(event.target.value)}
           />
-          <SearchBoxIcon>
+          <SearchBoxIcon onClick={(event)=>setSearch(insearchbox)}>
             <Link to='/board'>
               <HiMagnifyingGlass size={20} />
             </Link>
-            
           </SearchBoxIcon>
           <SearchBoxModal isFocused={isFocused} />
         </div>

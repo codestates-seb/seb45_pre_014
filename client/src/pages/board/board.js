@@ -1,37 +1,12 @@
 import styled from 'styled-components';
 import './board.css';
-import glassimg from './magnifying_glass.png';
 import { useState, useEffect } from 'react';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { BoardList } from '../../component/BoardList/BoardList';
 import axios from 'axios';
 
-const SearchBox = styled.form`
-  border: 1px solid black;
-  border-radius: 10px;
-  width: 60vw;
-  height: 50px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 5px;
-`
-const Glassimg = styled.input`
-  width: 35px;
-  height: 35px;
-  background:url(glassimg);
-  background-repeat: no-repeat;
-  margin-right: 5px;
-`
-const Searchinput = styled.input`
-  width: 60vw;
-  border: none;
-  font-size: 20px;
-  margin-left: 5px;
-  outline: none;
-`
+
 const FilterSearch = styled.div`
 width: 80px;
 border: 1px solid #ccc;
@@ -45,7 +20,7 @@ cursor: pointer;
 
 const Line = styled.hr`
 width: 60vw;
-
+max-width: 890px;
 `
 
 const PaginationButton = styled.button`
@@ -57,33 +32,28 @@ margin: 3px;
   cursor: pointer;
 }
 `
-export function Board(){
+export function Board( {search} ){
   const [filter, setfilter] = useState('none');
-  const [search, setSearch] = useState('');
   const [page, setPage] = useState(1);
   const [boardData, setBoardData] = useState([]);
-
   // useEffect(() => {
   //   axios.get('http://localhost:4000')
   //   .then((res) =>{
   //     setBoardData(res)
-  //     console.log(boardData)
   //   })
+  //   .catch(console.log('error'))
   // },[page,boardData,search]);
 
-  function searchbox_submit(){
-
-  }
   function makebutton(){
     let arr = []
     if(page < 3){
       for(let pageBidx = 1; pageBidx < 6 && pageBidx < maxPage; pageBidx++){
         console.log(page===pageBidx)
-        arr.push(<PaginationButton onClick={()=>setPage(pageBidx)} className={page === pageBidx ? 'selected_page' : {}}>{pageBidx}</PaginationButton>)
+        arr.push(<PaginationButton key={pageBidx} onClick={()=>setPage(pageBidx)} className={page === pageBidx ? 'selected_page' : {}}>{pageBidx}</PaginationButton>)
       }
     }else{
       for(let pageBidx = page-2; pageBidx < page + showButton-2 && pageBidx < maxPage; pageBidx++){
-      arr.push(<PaginationButton onClick={()=>setPage(pageBidx)} className={page === pageBidx ? 'selected_page' : {}} >{pageBidx}</PaginationButton>)
+      arr.push(<PaginationButton key={pageBidx} onClick={()=>setPage(pageBidx)} className={page === pageBidx ? 'selected_page' : {}} >{pageBidx}</PaginationButton>)
     }
     }
     return arr
@@ -91,7 +61,14 @@ export function Board(){
   let paginationarr = [];//
 
   for (let i = 0; i < 100; i++){
-    paginationarr.push(i)
+    let tmp = {
+      title: '제목' + i,
+      id: 'id' + i,
+      time: '시간' + i,
+      view: 100,
+      idx : i
+    };
+    paginationarr.push(tmp)
   }
 
   const numOfContent = 100;
@@ -103,10 +80,6 @@ export function Board(){
   return(
     <div className = 'board'>
     <main className='board_container'>
-      {/* <SearchBox onSubmit={searchbox_submit}>
-        <Searchinput type='text' placeholder='찾기' onChange={(event) => setSearch(event.target.value)}></Searchinput>
-        <Glassimg type='image' src={glassimg}></Glassimg>
-      </SearchBox> */}
       <div className='filter_container'>
         <FilterSearch className={filter === 'new' ? 'filterselected' : {}} onClick={()=>setfilter('new')}>최신순</FilterSearch>
         <FilterSearch className={filter === 'view' ? 'filterselected' : {}} onClick={()=>setfilter('view')}>조회순</FilterSearch>
@@ -115,7 +88,7 @@ export function Board(){
       <Line></Line>
       <Link to="/boardpost" className='board_question'>질문하기</Link>
       <div className='boardlist_container'>
-      {arr.map((ele)=><BoardList ele = {ele}/>)}
+      {arr.map((ele)=><BoardList key={ele.idx} title = {ele.title} id = {ele.id} time = {ele.time} view = {ele.view}/>)}
       <hr className='line'  ></hr>
       {makebutton()}
       </div>

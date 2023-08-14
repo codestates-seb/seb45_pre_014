@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 const Board = styled.div`
   background-color: white;
   width: 60vw;
+  max-width: 890px;
   height: 150px;
   display: flex;
   align-items: center;
@@ -36,16 +37,16 @@ const OwnerID = styled.div`
 const LastAnswer = styled.div`
   font-size: 12px;
 `
-export function BoardList({ele}){
+export function BoardList({title, view, id, time}){
   return (
       <Board>
         <div className='boardTitle_viewcount_container'>
-        <Link to="/boardnote"><BoardTitle>title: 제목을 입력하세요{ele}</BoardTitle></Link>
-          <ViewCount>view</ViewCount>
+        <Link to="/boardnote"><BoardTitle>{title}</BoardTitle></Link>
+          <ViewCount>{view}</ViewCount>
         </div>
         <div className='ownerid_lastanswer_container'>
-          <OwnerID>id</OwnerID>
-          <LastAnswer>time</LastAnswer>
+          <OwnerID>{id}</OwnerID>
+          <LastAnswer>{time}</LastAnswer>
         </div>
       </Board>
   )
