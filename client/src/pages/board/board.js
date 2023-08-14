@@ -5,7 +5,6 @@ import { useState, useEffect } from 'react';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { BoardList } from '../../component/BoardList/BoardList';
-import  HeaderLogout  from '../../component/HeaderLogout'
 import axios from 'axios';
 
 const SearchBox = styled.form`
@@ -103,7 +102,6 @@ export function Board(){
   arr = paginationarr.slice((page-1)*10,page*10)
   return(
     <div className = 'board'>
-      <HeaderLogout />
     <main className='board_container'>
       {/* <SearchBox onSubmit={searchbox_submit}>
         <Searchinput type='text' placeholder='찾기' onChange={(event) => setSearch(event.target.value)}></Searchinput>

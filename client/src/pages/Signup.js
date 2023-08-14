@@ -2,7 +2,6 @@ import styled from "styled-components";
 import { FcGoogle } from "react-icons/fc";
 import { ImPriceTags, ImTrophy } from "react-icons/im";
 import { FaQuestionCircle, FaSort } from "react-icons/fa";
-import HeaderLogout from "../component/HeaderLogout";
 import { InputItem } from "../component/CreateContent";
 import { Link } from "react-router-dom";
 
@@ -267,7 +266,6 @@ const Signup = () => {
   return (
     <>
       <header>
-        <HeaderLogout />
       </header>
       <main>
         <DivContainer>

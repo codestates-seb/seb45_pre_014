@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import './board_edit.css'
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import  HeaderLogout  from '../../component/HeaderLogout';
 const BoardEdith1 = styled.h1`
   margin-right: auto;
 `
@@ -43,7 +42,6 @@ export function BoardEdit(){
   }
   return (
     <div className = 'board_edit'>
-      <HeaderLogout />
       <main className='board_edit_container'>
         <BoardEdith1>수정하기</BoardEdith1>
         <BoardEditForm onSubmit={board_edit_post}>

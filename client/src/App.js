@@ -6,12 +6,13 @@ import { Board } from '../src/pages/board/board'
 import { BoardPost } from '../src/pages/board_post/board_post'
 import { BoardEdit } from './pages/board_edit/board_edit';
 import { BoardNote } from './pages/board_note/board_note';
-
+import  HeaderLogout  from './component/HeaderLogout'
 
 function App() {
   return (
     <BrowserRouter>
       <div className='App'>
+        <HeaderLogout/>
         <Routes>
           <Route path='/' element={<LoginPage />} />
           <Route path='/signup' element={<Signup />} />
