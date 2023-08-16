@@ -1,47 +1,42 @@
 package com.seb45_pre_014.server.question.dto;
 
-import com.sun.istack.NotNull;
+
 import lombok.Getter;
 import lombok.Setter;
 
-import java.time.LocalDateTime;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Positive;
+import javax.validation.constraints.Size;
+
 
 public class QuestionDto {
 
     @Getter
     @Setter
-    public static class Post{
+    public static class Post {
 
-        @NotNull
+        @Positive
         private long memberId;
-        @NotNull
+        @NotBlank
+        @Size(min = 1, max = 50, message = "질문제목을 입력하시고 50자를 넘길 수 없습니다.")
         private String title;
-        @NotNull
+        @NotBlank(message = "내용을 입력하세요.")
         private String content;
 
-        public Post(long memberId, String title, String content) {
-            this.memberId = memberId;
-            this.title = title;
-            this.content = content;
-        }
     }
 
     @Getter
     @Setter
-    public static class Patch{
+    public static class Patch {
 
-        @NotNull
         private long questionId;
-        @NotNull
+
+        @Size(min = 1, max = 50, message = "질문제목은 50자를 넘길 수 없습니다.")
         private String title;
-        @NotNull
+
+        @NotBlank(message = "내용을 입력하세요.")
         private String content;
 
-        public Patch(long questionId, String title, String content) {
-            this.questionId = questionId;
-            this.title = title;
-            this.content = content;
-        }
     }
 
 }

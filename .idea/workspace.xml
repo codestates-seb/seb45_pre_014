@@ -5,15 +5,64 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9d976471-0f26-40c0-b860-3446526c07f4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/seb45_pre_014/server/question/dto/QuestionResponseDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/seb45_pre_014/server/answer/AnswerMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/seb45_pre_014/server/exception/BusinessLogicException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/seb45_pre_014/server/exception/ExceptionCode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/seb45_pre_014/server/member/auth/config/SecurityConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/seb45_pre_014/server/member/auth/dto/LoginDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/seb45_pre_014/server/member/auth/filter/JwtAuthenticationFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/seb45_pre_014/server/member/auth/filter/JwtVerificationFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/seb45_pre_014/server/member/auth/handler/MemberAuthenticationFailureHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/seb45_pre_014/server/member/auth/handler/MemberAuthenticationSuccessHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/seb45_pre_014/server/member/auth/jwt/JwtTokenizer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/seb45_pre_014/server/member/auth/userdetails/MemberDetailsService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/seb45_pre_014/server/member/auth/utils/CustomAuthorityUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/seb45_pre_014/server/member/controller/MemberController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/seb45_pre_014/server/member/dto/MemberDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/seb45_pre_014/server/member/mapper/MemberMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/seb45_pre_014/server/member/repository/MemberRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/seb45_pre_014/server/member/service/MemberService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/seb45_pre_014/server/question/controller/QuestionController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/seb45_pre_014/server/question/entity/Question.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/seb45_pre_014/server/question/mapper/QuestionMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/seb45_pre_014/server/question/repository/QuestionRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/seb45_pre_014/server/question/service/QuestionService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/seb45_pre_014/server/response/AuthResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/seb45_pre_014/server/response/ErrorResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/seb45_pre_014/server/response/MultiResponseDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/seb45_pre_014/server/response/PageInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/seb45_pre_014/server/response/SingleResponseDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/seb45_pre_014/server/utils/ApiDocumentUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/seb45_pre_014/server/utils/CustomBeanUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/seb45_pre_014/server/utils/UriCreator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/test/java/com/seb45_pre_014/server/JwtTokenizerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/seb45_pre_014/server/member/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/seb45_pre_014/server/member/HomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/seb45_pre_014/server/member/MemberController.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/seb45_pre_014/server/member/MemberController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/seb45_pre_014/server/question/Question.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/seb45_pre_014/server/question/Question.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/seb45_pre_014/server/question/QuestionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/seb45_pre_014/server/question/QuestionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/seb45_pre_014/server/question/QuestionDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/seb45_pre_014/server/question/dto/QuestionDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/test/java/com/seb45_pre_014/server/ServerApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/test/java/com/seb45_pre_014/server/ServerApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/server/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/seb45_pre_014/server/ServerApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/seb45_pre_014/server/ServerApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/seb45_pre_014/server/answer/Answer.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/seb45_pre_014/server/answer/Answer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/seb45_pre_014/server/answer/AnswerController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/seb45_pre_014/server/answer/AnswerDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/seb45_pre_014/server/answer/AnswerDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/seb45_pre_014/server/answer/AnswerRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/seb45_pre_014/server/comment/Comment.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/seb45_pre_014/server/comment/Comment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/seb45_pre_014/server/comment/CommentController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/seb45_pre_014/server/comment/CommentDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/seb45_pre_014/server/comment/CommentRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/seb45_pre_014/server/member/HomeController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/seb45_pre_014/server/member/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/seb45_pre_014/server/member/entity/Member.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/seb45_pre_014/server/member/MemberController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/seb45_pre_014/server/member/MemberDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/seb45_pre_014/server/member/MemberRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/seb45_pre_014/server/member/security/SecurityConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/seb45_pre_014/server/question/Question.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/seb45_pre_014/server/question/QuestionController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/seb45_pre_014/server/question/QuestionRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/seb45_pre_014/server/question/dto/QuestionDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/seb45_pre_014/server/question/dto/QuestionDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/seb45_pre_014/server/question/dto/QuestionResponseDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/seb45_pre_014/server/question/dto/QuestionResponseDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/test/java/com/seb45_pre_014/server/ServerApplicationTests.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,19 +123,47 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;ignore_missing_gitignore&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/PreProject2/seb45_pre_014&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.projectsettings.compiler.annotationProcessors&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "ignore_missing_gitignore": "true",
+    "last_opened_file_path": "C:/PreProject3/seb45_pre14",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "reference.projectsettings.compiler.annotationProcessors",
+    "spring.configuration.checksum": "f388e2a0991e057a0316947c380806f0",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
-  <component name="RunManager" selected="Application.ServerApplication">
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\PreProject3\seb45_pre_014\server\src\main\resources" />
+      <recent name="C:\PreProject3\seb45_pre_014\server\src\main\java\com\seb45_pre_014\server" />
+      <recent name="C:\PreProject3\seb45_pre_014\server\src\main\java\com\seb45_pre_014\server\member" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.seb45_pre_014.server" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.seb45_pre_014.server" />
+      <recent name="com.seb45_pre_014.server.response" />
+      <recent name="com.seb45_pre_014.server.member.service" />
+      <recent name="com.seb45_pre_014.server.member.controller" />
+      <recent name="com.seb45_pre_014.server.member.repository" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Spring Boot.ServerApplication">
     <configuration name="ServerApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.seb45_pre_014.server.ServerApplication" />
       <module name="server.main" />
@@ -192,6 +269,13 @@
       <ForceTestExec>false</ForceTestExec>
       <method v="2" />
     </configuration>
+    <configuration name="ServerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="server.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.seb45_pre_014.server.ServerApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.server [build]" />
@@ -210,7 +294,16 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1691554892261</updated>
+      <workItem from="1692152220482" duration="1733000" />
+      <workItem from="1692153967812" duration="3719000" />
+      <workItem from="1692157698561" duration="1419000" />
+      <workItem from="1692159560250" duration="4892000" />
+      <workItem from="1692165300751" duration="17605000" />
+      <workItem from="1692196711057" duration="2179000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
 </project>

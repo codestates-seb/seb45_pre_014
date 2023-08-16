@@ -1,15 +1,15 @@
 package com.seb45_pre_014.server.answer;
 
+
 import com.seb45_pre_014.server.comment.Comment;
-import com.seb45_pre_014.server.member.Member;
+import com.seb45_pre_014.server.member.entity.Member;
+import com.seb45_pre_014.server.question.entity.Question;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-
-
 import java.time.LocalDateTime;
 
 @Getter
@@ -20,7 +20,7 @@ import java.time.LocalDateTime;
 public class Answer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long answer_id;
+    private Long answerId;
 
     @Column( columnDefinition = "TEXT",nullable = false)
     private String content;
@@ -29,10 +29,17 @@ public class Answer {
     private LocalDateTime created_at;
 
     @ManyToOne
-    @JoinColumn(name = "member_id")
+    @JoinColumn(name = "memberId")
     private Member member;
 
+    @ManyToOne
+    @JoinColumn(name = "QUESTION_ID")
+    private Question question;
+
     @OneToOne
-    @JoinColumn(name = "comment_id")
+    @JoinColumn(name = "commentId")
     private Comment comment;
+
+
+
 }
