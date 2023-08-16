@@ -140,8 +140,8 @@ const HeaderLogout = ({setSearch}) => {
         <Mainlogo href="#">
           <span>Stack overflow</span>
         </Mainlogo>
-        <Link to="/introduce">
-          <ProductBtn>Product</ProductBtn>
+        <Link to="/About">
+          <ProductBtn>About</ProductBtn>
         </Link>
         <div className="searchBoxWrap">
           <SearchBox

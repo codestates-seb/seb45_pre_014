@@ -271,7 +271,7 @@ const Signup = () => {
         <DivContainer>
           <DivContent>
             <LeftDiv>
-              <h1>Join the Stack Overflow community</h1>
+              <h1>Join the Stack Overflow Community</h1>
               <div>
                 <IconDiv>
                   <FaQuestionCircle />
