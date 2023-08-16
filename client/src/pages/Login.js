@@ -1,9 +1,91 @@
 import styled from "styled-components";
 import { FcGoogle } from "react-icons/fc";
 import TopLogo from "../assets/Stack_Overflow_icon.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 function LoginPage() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [emailError, setEmailError] = useState("");
+  const [passwordError, setPasswordError] = useState("");
+  const emailForm = /[a-z0-9]+@[a-z]+.[a-z]{2,6}/;
+  const passwordForm = /^.{8,}&/;
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!email.length) {
+      setEmailError("Email cannot be empty.");
+    } else if (!emailForm.test(email)) {
+      setEmailError("The email is not a valid email address.");
+    } else {
+      setEmailError("");
+    }
+  }, [email, emailForm]);
+
+  useEffect(() => {
+    if (!password.length) {
+      setPasswordError("Password cannot be empty.");
+    } else if (!passwordForm.test(password)) {
+      setPasswordError("Password must be at least 8 characters long");
+    } else {
+      setPasswordError("This password is available");
+    }
+  }, [password, passwordForm]);
+
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
+  };
+
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value);
+  };
+
+  const PROXY = window.location.hostname === "localhost" ? "" : "/proxy";
+  const URL = `${PROXY}/login`;
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (
+      email.length && password.length && emailForm.test(email) && passwordForm.test(password)
+    ) {
+      console.log("Login success");
+      setEmailError("");
+      setPasswordError("");
+      try {
+        const userInfo = {
+          email,
+          password,
+        };
+        axios
+          .post(URL, userInfo)
+          .then((res) => {
+            //Success
+            console.log(res);
+            localStorage.setItem(
+              "Authorization",
+              res.headers.authorization
+            );
+            localStorage.setItem("memberId", res.data.memberId);
+            navigate("/Home");
+          })
+          .catch((error) => {
+            //fail
+            console.log(error);
+            console.log(emailError);
+            console.log(passwordError);
+          });
+      } catch (error) {
+        alert(error.message);
+      }
+    }
+  };
+
+  const handleGoogleLogin = () => {
+    window.location.href = "/oauth2/authorization/google";
+  }
+
     return (
         <>
           <header>
@@ -15,7 +97,7 @@ function LoginPage() {
                   <LoginLogoImg src={TopLogo} alt="logo" />
                 </LoginLogo>
     
-                <SocialLoginBtn>
+                <SocialLoginBtn onClick={handleGoogleLogin}>
                   <SocialLoginLinkBox>
                     <SocialLoginLogo>
                       <FcGoogle className="logo" />
@@ -25,22 +107,25 @@ function LoginPage() {
                 </SocialLoginBtn>
     
                 <UserLoginFormBox>
-                  <form
-                  // onSubmit={handleSubmit}
-                  >
+                  <form>
                     <EmailFormBox>
                       <EmailIndicator>Email</EmailIndicator>
-                      <EmailInput />
+                      <EmailInput value={email} onChange={handleEmailChange} />
                     </EmailFormBox>
                     <PasswordFormBox>
                       <PasswordGuideBox>
                         <PasswordIndicator>Password</PasswordIndicator>
                         <FindPassword href="#">Forgot Password?</FindPassword>
                       </PasswordGuideBox>
-                      <PasswordInput />
+                      <PasswordInput
+                        type="password"
+                        value={password}
+                        onChange={handlePasswordChange}
+                      />
+                      {passwordError && <span>{passwordError}</span>}
                     </PasswordFormBox>
                     <LoginSubmitBox>
-                      <LoginSubmitBtn>Log in</LoginSubmitBtn>
+                      <LoginSubmitBtn onClick={handleSubmit}>Log in</LoginSubmitBtn>
                     </LoginSubmitBox>
                   </form>
                 </UserLoginFormBox>
