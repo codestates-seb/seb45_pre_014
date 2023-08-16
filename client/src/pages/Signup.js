@@ -3,7 +3,9 @@ import { FcGoogle } from "react-icons/fc";
 import { ImPriceTags, ImTrophy } from "react-icons/im";
 import { FaQuestionCircle, FaSort } from "react-icons/fa";
 import { InputItem } from "../component/CreateContent";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 export const DivContainer = styled.div`
   display: flex;
@@ -112,7 +114,7 @@ export const OauthDiv = styled.div`
       margin-right: 10px;
     }
   }
-  .github {
+  .google {
     background-color: #fff;
     border-radius: 5px;
     &:hover {
@@ -263,6 +265,83 @@ export const InputEl = styled.input`
   }
 `;
 const Signup = () => {
+    const [displayName, setDisplayName] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+
+    const [isDisplayName, setIsDisplayName] = useState(false);
+    const [isEmail, setIsEmail] = useState(false);
+    const [isPassword, setIsPassword] = useState(false);
+
+    useEffect(() => {
+        const isValid = !isDisplayName && !isEmail && !isPassword;
+        if (isValid) {
+            console.log("true");
+        } else {
+            console.log("false");
+        }
+    }, [displayName, email, isDisplayName, isEmail, isPassword, password]);
+
+    const displayNameHandler = () => {
+        setIsDisplayName(false);
+    };
+
+    const emailHandler = () => {
+        const emailRegex = /[a-z0-9]+@[a-z]+.[a-z]{2,6}/;
+        if (emailRegex.test(email)) {
+            setIsEmail(false);
+        } else {
+            setIsEmail(true);
+        }
+    };
+
+    const passwordHandler = () => {
+        if (password.length >= 8 && password.length <= 12) {
+            setIsPassword(false);
+        } else {
+            setIsPassword(true);
+        }
+    };
+
+    const navigate = useNavigate();
+    const PROXY = window.location.hostname === "localhost" ? "" : "/proxy";
+    const URL = `${PROXY}/users`;
+
+    const formSubmitHandler = (e) => {
+        e.preventDefault();
+
+        displayNameHandler();
+        emailHandler();
+        passwordHandler();
+
+        const userInfo = {
+            membername: displayName,
+            email,
+            password,
+        };
+
+        axios
+          .post(URL, userInfo)
+          .then((res) => {
+            console.log(res.data);
+
+            navigate("/");
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+    };
+
+    const handleGoogleLogin = () => {
+        window.location.href = "/oauth2/authorization/google";
+    };
+
+    const alert = [
+        "이름이 중복됩니다.",
+        "이메일 형식이 올바르지 않습니다.",
+        "Please write password at least 8 characters.",
+    ];
+
   return (
     <>
       <header>
@@ -312,33 +391,55 @@ const Signup = () => {
             <RightDiv>
               {/* <GoogleButton /> */}
               <OauthDiv>
-                <button>
+                <button className="google" onClick={handleGoogleLogin}>
                   <FcGoogle />
                   Sign up with Google
                 </button>
               </OauthDiv>
 
               <SignupDiv>
-                <FormContainer>
+                <FormContainer
+                  displayName={isDisplayName}
+                  email={isEmail}
+                  password={isPassword}
+                >
                   {/* 이름 input */}
                   <div>
                     <label htmlFor="display_name">Display name</label>
                     <div className="isName">
-                      <InputItem />
+                      <InputItem
+                        isTitle={isDisplayName}
+                        value={displayName}
+                        setValue={setDisplayName}
+                        alert={alert[0]}
+                        type="text"
+                      />
                     </div>
                   </div>
                   {/* 이메일 input */}
                   <div className="emailInput">
                     <label htmlFor="email">Email</label>
                     <div className="isEmail">
-                      <InputItem />
+                      <InputItem
+                        isTitle={isEmail}
+                        value={email}
+                        setValue={setEmail}
+                        alert={alert[1]}
+                        type="text" 
+                      />
                     </div>
                   </div>
                   {/* 패스워드 input */}
                   <div className="passwordInput">
                     <label htmlFor="password">Password</label>
                     <div className="isPassword">
-                      <InputItem />
+                      <InputItem
+                        isTitle={isPassword}
+                        value={password}
+                        setValue={setPassword}
+                        alert={alert[2]}
+                        type={"text"}
+                      />
                     </div>
                     <p>
                       Passwords must contain at least eight characters,
@@ -373,9 +474,9 @@ const Signup = () => {
                     </CheckDiv>
                   </div>
                   <div>
-                    <button>
+                    <Button type="submit" onClick={formSubmitHandler}>
                       Sign up
-                    </button>
+                    </Button>
                   </div>
                   <div>
                     By clicking “Sign up”, you agree to our{" "}
