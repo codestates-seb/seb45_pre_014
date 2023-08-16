@@ -153,7 +153,7 @@ const HeaderLogout = ({setSearch}) => {
             onChange={(event)=>setInSearchbox(event.target.value)}
           />
           <SearchBoxIcon onClick={(event)=>setSearch(insearchbox)}>
-            <Link to='/board'>
+            <Link to={`/board/?page=1`}>
               <HiMagnifyingGlass size={20} />
             </Link>
           </SearchBoxIcon>

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import './board_post.css'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 const BoardPosth1 = styled.h1`
   margin-right: auto;
@@ -37,6 +37,7 @@ export function BoardPost(){
   const [title, setTitle] = useState('');
   const [problem, setProblem] = useState('');
 
+  
   function board_post_post(){
     // axios.post('http://localhost:8080/questions',{
     //   title : title,

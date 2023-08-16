@@ -182,10 +182,10 @@ const HeaderLogin = () => {
         </div>
         <IconsBtnWrap>
           <IconsBtn>
-            <button className="mypageMoveBtn">
+            <Link to='/info' className="mypageMoveBtn" >
               <BsPersonCircle size={20} />
               <span className="reputationCount">1</span>
-            </button>
+            </Link>
           </IconsBtn>
           <IconsBtn>
             <IconBtnA>

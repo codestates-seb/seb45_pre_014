@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import './board.css';
 import { useState, useEffect } from 'react';
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { BoardList } from '../../component/BoardList/BoardList';
 import axios from 'axios';
 import Nav from '../../component/Nav';
@@ -34,8 +34,10 @@ margin: 3px;
 }
 `
 export function Board( {search} ){
+  let pageparam = useLocation();
+  console.log(pageparam.search.split('=')[1]);
   const [filter, setfilter] = useState('none');
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState(pageparam.search.split('=')[1]);
   const [boardData, setBoardData] = useState([]);
 
   // useEffect(() => {
@@ -60,12 +62,11 @@ export function Board( {search} ){
     let arr = []
     if(page < 3){
       for(let pageBidx = 1; pageBidx < 6 && pageBidx < maxPage; pageBidx++){
-        console.log(page===pageBidx)
-        arr.push(<PaginationButton key={pageBidx} onClick={()=>setPage(pageBidx)} className={page === pageBidx ? 'selected_page' : {}}>{pageBidx}</PaginationButton>)
+        arr.push(<Link to={`/board/?page=${pageBidx}`}><PaginationButton key={pageBidx} onClick={()=>setPage(pageBidx)} className={page === pageBidx ? 'selected_page' : {}}>{pageBidx}</PaginationButton></Link>)
       }
     }else{
       for(let pageBidx = page-2; pageBidx < page + showButton-2 && pageBidx < maxPage; pageBidx++){
-      arr.push(<PaginationButton key={pageBidx} onClick={()=>setPage(pageBidx)} className={page === pageBidx ? 'selected_page' : {}} >{pageBidx}</PaginationButton>)
+      arr.push(<Link to={`/board/?page=${pageBidx}`}><PaginationButton key={pageBidx} onClick={()=>setPage(pageBidx)} className={page === pageBidx ? 'selected_page' : {}} >{pageBidx}</PaginationButton></Link>)
     }
     }
     return arr

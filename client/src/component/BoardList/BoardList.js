@@ -40,7 +40,7 @@ export function BoardList({title, view, id, time}){
   return (
       <Board>
         <div className='boardTitle_viewcount_container'>
-        <Link to="/boardnote"><BoardTitle>{title}</BoardTitle></Link>
+        <Link to={`/boardnote/?questionId=${title}`}><BoardTitle>{title}</BoardTitle></Link>
           <ViewCount>{view}</ViewCount>
         </div>
         <div className='ownerid_lastanswer_container'>
