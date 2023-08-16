@@ -12,6 +12,7 @@ import { MemeberInfo } from './pages/member_info/member_info';
 import { useState } from "react";
 import Footer from './component/Footer';
 import Home from './pages/Home';
+import About from './pages/About';
 
 function App() {
   const [search, setSearch] = useState('');
@@ -23,6 +24,7 @@ function App() {
         <Routes>
           <Route path='/' element={<LoginPage />} />
           <Route path='/signup' element={<Signup />} />
+          <Route path='/about' element={<About />} />
 
           <Route path='/board' element={<Board search = {search}/>} ></Route>
           <Route path='/home' element={<Home />} />

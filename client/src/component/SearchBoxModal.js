@@ -1,6 +1,4 @@
 import styled from "styled-components";
-/* eslint-disable react/prop-types */
-// props 에러 해결 주석
 
 const SearchModal = styled.div`
   width: 100%;
