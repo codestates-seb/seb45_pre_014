@@ -38,8 +38,10 @@ export function BoardPost(){
   const [problem, setProblem] = useState('');
 
   function board_post_post(){
-    // axios.post('http://localhost:4000',{
-    //   body: boardNoteData
+    // axios.post('http://localhost:8080/questions',{
+    //   title : title,
+    //   content : problem,
+    //   memberId: 로그인 정보를 가져와 등록
     // })
   }
   return (

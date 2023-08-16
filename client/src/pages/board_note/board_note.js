@@ -4,6 +4,7 @@ import './board_note.css';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Nav from '../../component/Nav';
+import Aside from '../../component/Aside';
 
 const BoardNoteHead = styled.div`
   display: flex;
@@ -74,6 +75,7 @@ const BoardNoteMyReplyButton = styled.button`
   height: 30px;
   font-size: 15px;
   margin-bottom: 5px;
+  margin-top: 5px;
   cursor: pointer;
   &:active{
     background-color: #0174cb;
@@ -95,8 +97,9 @@ export function BoardNote(){
   const [deletepopup, setdeletepopup] = useState(false);
   const [boardNoteData, setBoardNoteData] = useState('');
   const [boardNotemyreply, setboardNotemyreply] = useState('');
+
   // useEffect(() => {
-  //   axios.get('http://localhost:4000')
+  //   axios.get('http://localhost:8080/questions')
   //   .then((res) =>{
   //     setBoardNoteData(res)
   //   })
@@ -147,10 +150,8 @@ export function BoardNote(){
             <CancelPopupButton onClick={()=>setdeletepopup(false)}>취소</CancelPopupButton>
           </div>
         </DeletePopup>
-        
-        
       </div>
-      
+      <Aside></Aside>
     </div>
   )
 }
