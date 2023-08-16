@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { useEffect, useState } from 'react';//답변하기 누르면 리렌더링 되야함
 import './board_note.css';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import axios from 'axios';
 import Nav from '../../component/Nav';
 import Aside from '../../component/Aside';
@@ -95,11 +95,14 @@ const CancelPopupButton = styled.button`
 `
 export function BoardNote(){
   const [deletepopup, setdeletepopup] = useState(false);
-  const [boardNoteData, setBoardNoteData] = useState('');
+  const [boardNoteData, setBoardNoteData] = useState('data');
   const [boardNotemyreply, setboardNotemyreply] = useState('');
+  let param = useLocation();
+  console.log(param.search.split('=')[1])
+  let questionId = param.search.split('=')[1]
 
   // useEffect(() => {
-  //   axios.get('http://localhost:8080/questions')
+  //   axios.get(`http://localhost:8080/questions/%7B${questionId}%7D`)
   //   .then((res) =>{
   //     setBoardNoteData(res)
   //   })
@@ -107,8 +110,10 @@ export function BoardNote(){
   // },[boardNoteData]);
 
   function boardNotemyreplyPost(){
-    // axios.post('http://localhost:4000',{
-    //   body: boardNoteData
+    // axios.post('http://localhost:8080/api/v1/questions/${question-id}/answer',{
+    //   content: boardNotemyreply,
+    //   memberId: "1",
+    //   questionId: questionId
     // })
   }
 
@@ -119,7 +124,7 @@ export function BoardNote(){
       <div className='board_note_container'>
         <BoardNoteHead>
           <div className='title_andelse'>
-            <BoardNoteTitle>타이틀</BoardNoteTitle>
+            <BoardNoteTitle>{questionId}</BoardNoteTitle>
             <BoardNoteElse>수정일/질문일/조회수</BoardNoteElse>
           </div>
           <div className='profile_edit_delete_button'>
@@ -131,7 +136,7 @@ export function BoardNote(){
           </div>
         </BoardNoteHead>
         <Line></Line>
-        <BoardNoteNote>질문 블라블라</BoardNoteNote>
+        <BoardNoteNote>{boardNoteData}</BoardNoteNote>
         <BoardNoteReplyCount>답변이 ~개 있습니다.</BoardNoteReplyCount>
         {/* {답변들 위치할 자리} */}
         <BoardNoteReply>대답대답~~~~</BoardNoteReply>
@@ -139,14 +144,14 @@ export function BoardNote(){
         <BoardNoteMyReplyForm>
           <BoardNoteMyReplyTitle>답변하기</BoardNoteMyReplyTitle>
           <BoardNoteMyReply rows='10' onChange={(ele)=>setboardNotemyreply(ele.target.value)}></BoardNoteMyReply>
-          <BoardNoteMyReplyButton onClick = {boardNotemyreplyPost}>답변하기</BoardNoteMyReplyButton>
+          <Link to={`/boardnote/?questionId=${questionId}`} className = 'boardnotemyreplybuttonlink'><BoardNoteMyReplyButton onClick = { ()=>{ boardNotemyreplyPost(); setboardNotemyreply('')}}>답변하기</BoardNoteMyReplyButton></Link>
         </BoardNoteMyReplyForm>
       </div>
       <div className={deletepopup === true ? 'deletepopuptrue' : 'deletepopupfalse'}>
         <DeletePopup>
           <div>삭제 하시겠습니까?</div>
           <div className='delete_popup_buttons'>
-            <Link to='/board'><DeletePopupButton>삭제</DeletePopupButton></Link>
+            <Link to='/board/?page=1'><DeletePopupButton>삭제</DeletePopupButton></Link>
             <CancelPopupButton onClick={()=>setdeletepopup(false)}>취소</CancelPopupButton>
           </div>
         </DeletePopup>

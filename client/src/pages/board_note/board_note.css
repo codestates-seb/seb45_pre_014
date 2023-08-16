@@ -17,7 +17,7 @@
 .deletepopuptrue{
   background-color:rgba(0, 0, 0, 0.8);
   width: 100vw;
-  height: 100vh;
+  height: 100vmax;
   position: absolute;
   display: flex;
   align-items: center;
@@ -27,4 +27,8 @@
 
 .deletepopupfalse{
   display: none;
+}
+
+.boardnotemyreplybuttonlink{
+  margin-right: auto;
 }

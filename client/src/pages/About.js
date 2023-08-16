@@ -10,7 +10,8 @@ import person5 from "../assets/person5.png";
 
 const IntroduceWrap = styled.div`
   padding: 30px;
-  width: 3000px;
+  display: flex;
+  flex-direction: column;
   h1 {
     text-align: left;
   }
@@ -43,9 +44,6 @@ const IntroduceContent = styled.div`
 const About = () => {
     return (
         <>
-        <header>
-            <HeaderLogin />
-        </header>
         <main>
             <Nav />
             <IntroduceWrap>
