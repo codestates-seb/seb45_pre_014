@@ -10,7 +10,6 @@ const Board = styled.div`
   align-items: center;
   flex-direction: row;
   justify-content: space-between;
-  border-left: 1px solid #ccc;
   border-right: 1px solid #ccc;
   border-top: 1px solid #ccc;
 `

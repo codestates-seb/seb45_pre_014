@@ -5,8 +5,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { BoardList } from '../../component/BoardList/BoardList';
 import axios from 'axios';
-import Nav from '../../component/Nav'
-
+import Nav from '../../component/Nav';
+import Aside from '../../component/Aside';
 
 const FilterSearch = styled.div`
 width: 80px;
@@ -37,13 +37,24 @@ export function Board( {search} ){
   const [filter, setfilter] = useState('none');
   const [page, setPage] = useState(1);
   const [boardData, setBoardData] = useState([]);
+
   // useEffect(() => {
-  //   axios.get('http://localhost:4000')
+  //   if(filter === 'none'){
+  //     axios.get(`http://localhost:8080/questions/%7B${search}%7D`)
   //   .then((res) =>{
   //     setBoardData(res)
   //   })
   //   .catch(console.log('error'))
-  // },[page,boardData,search]);
+  //   }
+  //   else{
+  //     axios.get(`http://localhost:8080/questions/viewCount`)
+  //   .then((res) =>{
+  //     setBoardData(res)
+  //   })
+  //   .catch(console.log('error'))
+  //   }
+    
+  // },[page,boardData,search,filter]);
 
   function makebutton(){
     let arr = []
@@ -83,18 +94,31 @@ export function Board( {search} ){
       <Nav />
     <main className='board_container'>
       <div className='filter_container'>
-        <FilterSearch className={filter === 'new' ? 'filterselected' : {}} onClick={()=>setfilter('new')}>최신순</FilterSearch>
-        <FilterSearch className={filter === 'view' ? 'filterselected' : {}} onClick={()=>setfilter('view')}>조회순</FilterSearch>
-        <FilterSearch className={filter === 'alot' ? 'filterselected' : {}} onClick={()=>setfilter('alot')}>답변 많은 순</FilterSearch>
+        <FilterSearch 
+          className={filter === 'new' ? 'filterselected' : {}} 
+          onClick={filter === 'new' ? ()=>setfilter('none'):()=>setfilter('new')}>
+          최신순
+        </FilterSearch>
+        <FilterSearch 
+          className={filter === 'view' ? 'filterselected' : {}} 
+          onClick={filter === 'view' ? ()=>setfilter('none'):()=>setfilter('view')}>
+          조회순
+        </FilterSearch>
+        <FilterSearch 
+          className={filter === 'alot' ? 'filterselected' : {}} 
+          onClick={filter === 'alot' ? ()=>setfilter('none'):()=>setfilter('alot')}>
+          답변 많은 순
+        </FilterSearch>
       </div>
       <Line></Line>
       <Link to="/boardpost" className='board_question'>질문하기</Link>
       <div className='boardlist_container'>
       {arr.map((ele)=><BoardList key={ele.idx} title = {ele.title} id = {ele.id} time = {ele.time} view = {ele.view}/>)}
-      <hr className='line'  ></hr>
+      <hr className='line'/>
       {makebutton()}
       </div>
     </main>
+    <Aside />
     </div>
   )
 }

@@ -8,6 +8,8 @@ export const AsideContainer = styled.section`
   padding: 20px;
   color: #232629;
   text-align: left;
+  margin-bottom: auto;
+  margin-top: 21px;
 `;
 
 export const SideBanner = styled.aside`

@@ -39,9 +39,11 @@ export function BoardEdit( {boardEditData} ){
   const [problem, setProblem] = useState(boardEditData);
 
   function board_edit_post(){
-    // axios.post('http://localhost:4000',{
-    //   title: title,
-    //   problem: problem,
+    // axios.patch('http://localhost:8080/questions/%7Bquestion-id%7D',{
+    //   title : title,
+    //   content : problem,
+    //   memberId : 받아온 멤버 아이디를 이용해 작성
+    //   questionId : 받아온 정보를 이용해 작성
     // })
   }
   return (
