@@ -97,24 +97,32 @@ export function BoardNote(){
   const [deletepopup, setdeletepopup] = useState(false);
   const [boardNoteData, setBoardNoteData] = useState('data');
   const [boardNotemyreply, setboardNotemyreply] = useState('');
+  const [isMyBoard, setIsMyBoard] = useState(false);
   let param = useLocation();
   console.log(param.search.split('=')[1])
   let questionId = param.search.split('=')[1]
-
-  // useEffect(() => {
-  //   axios.get(`http://localhost:8080/questions/%7B${questionId}%7D`)
-  //   .then((res) =>{
-  //     setBoardNoteData(res)
-  //   })
-  //   .catch(console.log('error'))
-  // },[boardNoteData]);
+  let userId = null;
+  useEffect(() => {
+     axios.get(`http://localhost:8080/questions/%7B${questionId}%7D`)
+     .then((res) =>{
+       setBoardNoteData(res.data);
+       let userId = localStorage.getItem("memberId");
+      if (userId === boardNoteData.memberId){
+        setIsMyBoard(true);
+      }else{
+        setIsMyBoard(false)
+      }
+    })
+    .catch(console.log('error'))
+    
+  },[boardNoteData]);
 
   function boardNotemyreplyPost(){
-    // axios.post('http://localhost:8080/api/v1/questions/${question-id}/answer',{
-    //   content: boardNotemyreply,
-    //   memberId: "1",
-    //   questionId: questionId
-    // })
+    axios.post(`http://localhost:8080/api/v1/questions/${questionId}/answer`,{
+      content: boardNotemyreply,
+      memberId: userId,
+      questionId: questionId
+    })
   }
 
 
@@ -124,12 +132,12 @@ export function BoardNote(){
       <div className='board_note_container'>
         <BoardNoteHead>
           <div className='title_andelse'>
-            <BoardNoteTitle>{questionId}</BoardNoteTitle>
-            <BoardNoteElse>수정일/질문일/조회수</BoardNoteElse>
+            <BoardNoteTitle>{boardNoteData.title}</BoardNoteTitle>
+            <BoardNoteElse>{boardNoteData.createdAt}</BoardNoteElse>
           </div>
           <div className='profile_edit_delete_button'>
-            <BoardNoteProfile>프로필</BoardNoteProfile>
-            <div className={'edit_delete_button'}>
+            <BoardNoteProfile>{boardNoteData.name}</BoardNoteProfile>
+            <div className={isMyBoard? 'edit_delete_button':'edit_delete_button_none'}>
               <Link to='/boardedit'><BoardNoteEdit>수정하기</BoardNoteEdit></Link>
               <BoardNoteDelete onClick={()=>setdeletepopup(true)}>삭제하기</BoardNoteDelete>
             </div>
