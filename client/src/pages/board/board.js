@@ -37,26 +37,30 @@ export function Board( {search} ){
   let pageparam = useLocation();
   console.log(pageparam.search.split('=')[1]);
   const [filter, setfilter] = useState('none');
-  const [page, setPage] = useState(pageparam.search.split('=')[1]);
+  const [page, setPage] = useState(parseInt(pageparam.search.split('=')[1]));
   const [boardData, setBoardData] = useState([]);
-
-  // useEffect(() => {
-  //   if(filter === 'none'){
-  //     axios.get(`http://localhost:8080/questions/%7B${search}%7D`)
-  //   .then((res) =>{
-  //     setBoardData(res)
-  //   })
-  //   .catch(console.log('error'))
-  //   }
-  //   else{
-  //     axios.get(`http://localhost:8080/questions/viewCount`)
-  //   .then((res) =>{
-  //     setBoardData(res)
-  //   })
-  //   .catch(console.log('error'))
-  //   }
+  let numOfContent = 100;
+  let showContent = 10;
+  let showButton = 5;
+  let maxPage = Math.ceil(numOfContent/showContent)+1;
+  
+  useEffect(() => {
+    if(filter !== 'view'){
+      axios.get(`http://localhost:8080/questions?page=${page}size=10`)
+    .then((res) =>{
+      setBoardData(res.data)
+    })
+    .catch(console.log('error'))
+    }
+    else if(filter === 'view'){
+      axios.get(`http://localhost:8080/questions/viewCount`)
+    .then((res) =>{
+      setBoardData(res.data)
+    })
+    .catch(console.log('error'))
+    }
     
-  // },[page,boardData,search,filter]);
+  },[page,boardData,search,filter]);
 
   function makebutton(){
     let arr = []
@@ -71,25 +75,19 @@ export function Board( {search} ){
     }
     return arr
   }
-  let paginationarr = [];//
 
-  for (let i = 0; i < 100; i++){
-    let tmp = {
-      title: '제목' + i,
-      id: 'id' + i,
-      time: '시간' + i,
-      view: 100,
-      idx : i
-    };
-    paginationarr.push(tmp)
-  }
+  // for (let i = 0; i < 100; i++){
+  //   let tmp = {
+  //     title: '제목' + i,
+  //     id: 'id' + i,
+  //     time: '시간' + i,
+  //     view: 100,
+  //     idx : i
+  //   };
+  //   paginationarr.push(tmp)
+  // }
 
-  const numOfContent = 100;
-  const showContent = 10;
-  const showButton = 5;
-  const maxPage = Math.ceil(numOfContent/showContent)+1;
-  let arr = []
-  arr = paginationarr.slice((page-1)*10,page*10)
+
   return(
     <div className = 'board'>
       <Nav />
@@ -114,7 +112,7 @@ export function Board( {search} ){
       <Line></Line>
       <Link to="/boardpost" className='board_question'>질문하기</Link>
       <div className='boardlist_container'>
-      {arr.map((ele)=><BoardList key={ele.idx} title = {ele.title} id = {ele.id} time = {ele.time} view = {ele.view}/>)}
+      {boardData.map((ele)=><BoardList key={ele.questionId} title = {ele.title} id = {ele.username} time = {ele.createdAt} view = {"no"}/>)}
       <hr className='line'/>
       {makebutton()}
       </div>

@@ -18,7 +18,8 @@ import About from './pages/About';
 function App() {
   const [search, setSearch] = useState('');
   const [boardEditData, setboardEditData] = useState('');
-  const [isLogin, setIsLogin] = useState(false)
+  const [isLogin, setIsLogin] = useState(false);
+  
   return (
     <BrowserRouter>
       <div className='App'>

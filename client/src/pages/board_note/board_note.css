@@ -32,3 +32,7 @@
 .boardnotemyreplybuttonlink{
   margin-right: auto;
 }
+
+.edit_delete_button_none{
+  display: none;
+}

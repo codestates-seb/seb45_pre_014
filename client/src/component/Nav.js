@@ -153,7 +153,7 @@ const Nav = () => {
                                           className="font-awesome"
                                           icon={faEarthAmericas}
                                         />
-                                        <Link to="/Board">
+                                        <Link to="/board/?page=1">
                                         <span className="font-icon">Questions</span>
                                         </Link>
                                     </div>
