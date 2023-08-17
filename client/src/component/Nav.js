@@ -142,7 +142,9 @@ const Nav = () => {
                 <nav role="navigation">
                     <Nav01>
                         <li>
+                          <Link to="/Home">
                             <HoverDiv>Home</HoverDiv>
+                          </Link>
                         </li>
                         <ListChild>
                             <ol>
