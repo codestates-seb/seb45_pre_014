@@ -46,19 +46,20 @@ export function Board( {search} ){
   
   useEffect(() => {
     if(filter !== 'view'){
-      axios.get(`http://localhost:8080/questions?page=${page}size=10`)
+      axios.get(`https://7e9b-116-38-208-5.ngrok-free.app/questions?page=1&size=10`,{ withCredentials: true })
     .then((res) =>{
-      setBoardData(res.data)
+      console.log(res.data)
+      setBoardData(res.data.data)
     })
     .catch(console.log('error'))
     }
-    else if(filter === 'view'){
-      axios.get(`http://localhost:8080/questions/viewCount`)
-    .then((res) =>{
-      setBoardData(res.data)
-    })
-    .catch(console.log('error'))
-    }
+    // else if(filter === 'view'){
+    //   axios.get(`http://localhost:8080/questions/viewCount`)
+    // .then((res) =>{
+    //   setBoardData(res.data)
+    // })
+    // .catch(console.log('error'))
+    // }
     
   },[page,boardData,search,filter]);
 
