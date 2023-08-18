@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import './board_post.css'
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios'
 const BoardPosth1 = styled.h1`
   margin-right: auto;
 `
@@ -37,13 +38,12 @@ export function BoardPost(){
   const [title, setTitle] = useState('');
   const [problem, setProblem] = useState('');
 
-  
   function board_post_post(){
-    // axios.post('http://localhost:8080/questions',{
-    //   title : title,
-    //   content : problem,
-    //   memberId: 로그인 정보를 가져와 등록
-    // })
+    axios.post('https://7e9b-116-38-208-5.ngrok-free.app/questions',{
+      title : title,
+      content : problem,
+      memberId: 7
+    })
   }
   return (
     <div className = 'board_post'>

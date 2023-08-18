@@ -39,12 +39,12 @@ export function BoardEdit( {boardEditData} ){
   const [problem, setProblem] = useState(boardEditData);
 
   function board_edit_post(){
-    // axios.patch('http://localhost:8080/questions/%7Bquestion-id%7D',{
-    //   title : title,
-    //   content : problem,
-    //   memberId : 받아온 멤버 아이디를 이용해 작성
-    //   questionId : 받아온 정보를 이용해 작성
-    // })
+    axios.patch('https://7e9b-116-38-208-5.ngrok-free.app/questions/2',{
+      title : title,
+      content : problem,
+      memberId : 7,
+      questionId : 2
+    })
   }
   return (
     <div className = 'board_edit'>

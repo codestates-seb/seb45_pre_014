@@ -42,17 +42,17 @@ function LoginPage() {
     setPassword(e.target.value);
   };
 
-  const PROXY = window.location.hostname === "localhost" ? "" : "/proxy";
-  const URL = `${PROXY}/login`;
+  const URL = `https://7e9b-116-38-208-5.ngrok-free.app/members/login`;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (
-      email.length && password.length && emailForm.test(email) && passwordForm.test(password)
+      email.length && password.length && emailForm.test(email) /*&& passwordForm.test(password)*/
     ) {
       console.log("Login success");
       setEmailError("");
       setPasswordError("");
+      console.log(email,password)
       try {
         const userInfo = {
           email,
@@ -63,10 +63,10 @@ function LoginPage() {
           .then((res) => {
             //Success
             console.log(res);
-            localStorage.setItem(
-              "Authorization",
-              res.headers.authorization
-            );
+            
+            const accessToken = res.data.access_token;
+            console.log(accessToken)
+            localStorage.setItem('access_token', accessToken);
             localStorage.setItem("memberId", res.data.memberId);
             navigate("/Home");
           })

@@ -304,8 +304,7 @@ const Signup = () => {
     };
 
     const navigate = useNavigate();
-    const PROXY = window.location.hostname === "localhost" ? "" : "/proxy";
-    const URL = `${PROXY}/users`;
+    const URL = `https://7e9b-116-38-208-5.ngrok-free.app/members/signup/`;
 
     const formSubmitHandler = (e) => {
         e.preventDefault();
