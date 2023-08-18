@@ -9,7 +9,7 @@ import { BoardNote } from './pages/board_note/board_note';
 
 import  HeaderLogout  from './component/HeaderLogout';
 import HeaderLogin from './component/HeaderLogin';
-import { MemeberInfo } from './pages/member_info/member_info';
+import  Mypage  from './pages/Mypage';
 import { useState } from "react";
 import Footer from './component/Footer';
 import Home from './pages/Home';
@@ -36,7 +36,7 @@ function App() {
           <Route path='/' element={<LoginPage />} />
           <Route path='/signup' element={<Signup />} />
           <Route path='/about' element={<About />} />
-          <Route path='/info' element={<MemeberInfo/>}/>
+          <Route path='/info' element={<Mypage/>}/>
           <Route path='/board' element={<Board search = {search}/>} ></Route>
           <Route path='/home' element={<Home />} />
 
