@@ -2,6 +2,8 @@ package com.seb45_pre_014.server.member.auth.config;
 
 import com.seb45_pre_014.server.member.auth.filter.JwtAuthenticationFilter;
 import com.seb45_pre_014.server.member.auth.filter.JwtVerificationFilter;
+import com.seb45_pre_014.server.member.auth.handler.MemberAuthenticationFailureHandler;
+import com.seb45_pre_014.server.member.auth.handler.MemberAuthenticationSuccessHandler;
 import com.seb45_pre_014.server.member.auth.jwt.JwtTokenizer;
 import com.seb45_pre_014.server.member.auth.utils.CustomAuthorityUtils;
 import com.seb45_pre_014.server.member.repository.MemberRepository;
@@ -9,6 +11,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.config.http.SessionCreationPolicy;
@@ -46,7 +49,7 @@ public class SecurityConfiguration {
                 .and()
                 // 추가
                 .csrf().disable()
-                .cors(withDefaults())
+                .cors(Customizer.withDefaults())
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
                 .formLogin().disable()
@@ -54,11 +57,6 @@ public class SecurityConfiguration {
                 .apply(new CustomFilterConfigurer())
                 .and()
                 .authorizeHttpRequests(authorize -> authorize
-                        .antMatchers(HttpMethod.PATCH, "/questions/**").hasRole("USER")
-                        .antMatchers(HttpMethod.POST, "/*/members").permitAll()
-                        .antMatchers(HttpMethod.PATCH, "/*/members/**").hasRole("USER")
-                        .antMatchers(HttpMethod.GET, "/*/members/**").hasRole("USER")
-                        .antMatchers(HttpMethod.DELETE, "/*/members/**").hasRole("USER")
                         .anyRequest().permitAll()
                 );
 
@@ -67,53 +65,39 @@ public class SecurityConfiguration {
 
     }
 
-
-
-
-
-
     @Bean
-    CorsConfigurationSource corsConfigurationSource() {
+    public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
 
-        // 추가
-        //configuration.addAllowedOriginPattern("*");
-//        configuration.setAllowedOrigins(Arrays.asList("http://localhost:8080/"));
-//        configuration.setAllowedMethods(Arrays.asList("GET","POST", "PATCH", "DELETE", "OPTIONS"));
-//        configuration.setAllowedHeaders(Arrays.asList("Authorization", "Cache-Control", "Content-Type"));
-//        configuration.setExposedHeaders(Arrays.asList("*","Authorization"));
-
-        configuration.setAllowedOrigins(Arrays.asList("*"));
-        configuration.setAllowedMethods(Arrays.asList("GET","POST", "PATCH", "DELETE", "OPTIONS"));
-
-
-        // 추가
-//        configuration.setAllowCredentials(true);
-//        configuration.setMaxAge(86400L);
+        configuration.setAllowCredentials(true);
+       configuration.setAllowedOrigins(Arrays.asList("http://localhost:3000", "http://localhost:8080","https://7e9b-116-38-208-5.ngrok-free.app"));
+        //configuration.setAllowedOriginPatterns(Arrays.asList("*")); // 모든
+        configuration.setAllowedMethods(Arrays.asList("GET","POST","DELETE","PATCH"));
+        configuration.setAllowedHeaders(Arrays.asList("*"));
+        configuration.addExposedHeader("Authorization");
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-        source.registerCorsConfiguration("/**", configuration);
+        source.registerCorsConfiguration("/**", configuration); // CORS 설정 등록
+
         return source;
     }
 
-    // JwtAuthenticationFilter를 등록
-    public class CustomFilterConfigurer extends AbstractHttpConfigurer<CustomFilterConfigurer, HttpSecurity> {  // (2-1)
+    // JwtAuthenticationFilter를 등록,인증필터
+    public class CustomFilterConfigurer extends AbstractHttpConfigurer<CustomFilterConfigurer, HttpSecurity> {
         @Override
-        public void configure(HttpSecurity builder) throws Exception {  // (2-2)
-            AuthenticationManager authenticationManager = builder.getSharedObject(AuthenticationManager.class);  // (2-3)
+        public void configure(HttpSecurity builder) throws Exception {
+            AuthenticationManager authenticationManager = builder.getSharedObject(AuthenticationManager.class);
 
-            JwtAuthenticationFilter jwtAuthenticationFilter = new JwtAuthenticationFilter(authenticationManager, jwtTokenizer);  // (2-4)
-            jwtAuthenticationFilter.setFilterProcessesUrl("/login");          // (2-5)
+            JwtAuthenticationFilter jwtAuthenticationFilter = new JwtAuthenticationFilter(authenticationManager, jwtTokenizer);
+            jwtAuthenticationFilter.setFilterProcessesUrl("/members/login");
+            jwtAuthenticationFilter.setAuthenticationSuccessHandler(new MemberAuthenticationSuccessHandler());
+            jwtAuthenticationFilter.setAuthenticationFailureHandler(new MemberAuthenticationFailureHandler());
+           JwtVerificationFilter jwtVerificationFilter = new JwtVerificationFilter(jwtTokenizer, authorityUtils);  // (2) 추가
 
+            builder
+                    .addFilter(jwtAuthenticationFilter)
+                   .addFilterAfter(jwtVerificationFilter, JwtAuthenticationFilter.class);
 
-            JwtVerificationFilter jwtVerificationFilter
-                    = new JwtVerificationFilter(jwtTokenizer, authorityUtils);
-
-            builder.addFilter(jwtAuthenticationFilter)
-                    .addFilterAfter(jwtVerificationFilter, JwtAuthenticationFilter.class);
-
-//            builder.addFilter(jwtAuthenticationFilter);  // (2-6)
         }
     }
-
 }

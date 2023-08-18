@@ -39,7 +39,8 @@ mail:
     admin: admin@gmail.com    # jwt 사용할때 필요
 
 jwt:
-  key: codestatesexample123412341234123412341234     # jwt 사용할때 필요
+  key: dfdfdsgsgdsgsddsggsdgdggdsgdsgdggdgdsgdggddggdsdgsddggdgdsdgsdsgdsgdgsdggdsdgsdgs    # jwt 사용할때 필요 ${JWT_SECRET_KEY}
   access-token-expiration-minutes: 30
   refresh-token-expiration-minutes: 420
+
 

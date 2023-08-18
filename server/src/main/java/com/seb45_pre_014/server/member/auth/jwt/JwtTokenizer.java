@@ -19,7 +19,7 @@ import java.util.*;
 public class JwtTokenizer {
 
     @Getter
-    @Value("${jwt.key}}")
+    @Value("${jwt.key}")
     private String secretKey;  // jwt 생성 및 검증 시 사용되는 secretkey의 정보
 
     @Getter
@@ -108,6 +108,7 @@ public class JwtTokenizer {
 
         return key;
     }
+    //로그아웃
     public void addToTokenBlackList(String jws) {
         SecretKey key = Keys.hmacShaKeyFor(secretKey.getBytes());
         Long expirationTime = Jwts.parserBuilder().setSigningKey(key).build().parseClaimsJws(jws)

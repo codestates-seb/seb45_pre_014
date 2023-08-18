@@ -17,37 +17,15 @@ import java.util.Optional;
 
 @Slf4j
 public class MemberAuthenticationSuccessHandler implements AuthenticationSuccessHandler {
-
-    private final MemberRepository memberRepository;
-
-    public MemberAuthenticationSuccessHandler(MemberRepository memberRepository) {
-        this.memberRepository = memberRepository;
-    }
-
-    /** 인증 성공할때 **/
     @Override
-    public void onAuthenticationSuccess(HttpServletRequest request,
-                                        HttpServletResponse response,
-                                        Authentication authentication) throws IOException{
-        log.info("# 인증 성공!");
+        public void onAuthenticationSuccess(HttpServletRequest request,
+                                            HttpServletResponse response,
+                                            Authentication authentication) throws IOException {
+            // 인증 성공 후, 로그를 기록하거나 사용자 정보를 response로 전송하는 등의 추가 작업을 할 수 있다.
 
-        // 인증된 멤버의 ID 가져오기
-        String username = authentication.getName();  // 이메일 출력
 
-        Optional<Member> findMember = memberRepository.findByEmail(username);
-        Member member = findMember.orElseThrow(() ->
-                new BusinessLogicException(ExceptionCode.MEMBER_EXISTS));
-
-        long memberId = member.getMemberId();
-
-        // 응답 본문에 ID를 포함시키기
-        AuthResponse authResponse = new AuthResponse(memberId, "로그인 성공");
-
-        // JSON 형태로 변환하여 응답하기
-        ObjectMapper objectMapper = new ObjectMapper();
-        String jsonResponse = objectMapper.writeValueAsString(authResponse);
-
-        response.setContentType("application/json");
-        response.getWriter().write(jsonResponse);
+        log.info("# Authenticated successfully!");
+        System.out.println("로그인 성공");
+        }
     }
-}
+

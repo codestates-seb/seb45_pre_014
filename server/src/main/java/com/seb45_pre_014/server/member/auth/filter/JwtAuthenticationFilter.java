@@ -6,6 +6,7 @@ import com.seb45_pre_014.server.member.auth.dto.LoginDto;
 import com.seb45_pre_014.server.member.auth.jwt.JwtTokenizer;
 import com.seb45_pre_014.server.member.entity.Member;
 import lombok.SneakyThrows;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -60,7 +61,11 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
         String refreshToken = delegateRefreshToken(member); //Refresh Token을 생성
 
         response.setHeader("Authorization", "Bearer " + accessToken); // response header(Authorization)에 Access Token을 추가
+        System.out.println("Access Token"+accessToken);
         response.setHeader("Refresh", refreshToken); // response header(Refresh)에 Refresh Token을 추가
+        System.out.println("refresh토큰");
+        this.getSuccessHandler().onAuthenticationSuccess(request, response, authResult);  // (1) 추가
+
     }
 
     // Access Token 생성
