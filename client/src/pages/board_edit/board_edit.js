@@ -34,17 +34,19 @@ const BoardEditText = styled.textarea`
   width: 70vw;
 `
 
-export function BoardEdit( {boardEditData} ){
-  const [title, setTitle] = useState(boardEditData);
-  const [problem, setProblem] = useState(boardEditData);
+export function BoardEdit( {boardNoteData, setBoardNoteData} ){
+  const [title, setTitle] = useState(boardNoteData.title);
+  const [content, setProblem] = useState(boardNoteData.content);
+
 
   function board_edit_post(){
-    axios.patch('https://7e9b-116-38-208-5.ngrok-free.app/questions/2',{
+    console.log(boardNoteData.questionId, title, content)
+    axios.patch(`https://7e9b-116-38-208-5.ngrok-free.app/questions/${boardNoteData.questionId}`,{
       title : title,
-      content : problem,
-      memberId : 7,
-      questionId : 2
-    })
+      content : content,
+    },{headers: {Authorization: localStorage.getItem}})
+    .then((res)=>console.log(res))
+    .catch((res)=>console.log(res))
   }
   return (
     <div className = 'board_edit'>
@@ -57,7 +59,7 @@ export function BoardEdit( {boardEditData} ){
           </div>
           <div className='board_edit_text_container'>
             <BoardEditTextLabel>문제가 무엇인가요?</BoardEditTextLabel>
-            <BoardEditText value ={problem} cols="106" rows="20" name='board_edit_title' onChange={(event) => setProblem(event.target.value)}></BoardEditText>
+            <BoardEditText value ={content} cols="106" rows="20" name='board_edit_title' onChange={(event) => setProblem(event.target.value)}></BoardEditText>
           </div>
           <Link to='/boardnote' className='board_edit_question' onClick={board_edit_post}>수정하기</Link>
         </BoardEditForm>

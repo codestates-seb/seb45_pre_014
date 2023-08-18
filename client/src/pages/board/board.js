@@ -39,17 +39,15 @@ export function Board( {search} ){
   const [filter, setfilter] = useState('none');
   const [page, setPage] = useState(parseInt(pageparam.search.split('=')[1]));
   const [boardData, setBoardData] = useState([]);
-  let numOfContent = 100;
-  let showContent = 10;
-  let showButton = 5;
-  let maxPage = Math.ceil(numOfContent/showContent)+1;
-  
+  const [totalEle, setTotalEle] = useState(0);
+
   useEffect(() => {
     if(filter !== 'view'){
       axios.get(`https://7e9b-116-38-208-5.ngrok-free.app/questions?page=1&size=10`,{ withCredentials: true })
     .then((res) =>{
       console.log(res.data)
       setBoardData(res.data.data)
+      setTotalEle(res.data.pageInfo.totalpage)
     })
     .catch(console.log('error'))
     }
@@ -61,7 +59,12 @@ export function Board( {search} ){
     // .catch(console.log('error'))
     // }
     
-  },[page,boardData,search,filter]);
+  },[page,search,filter]);
+
+  let numOfContent = totalEle;
+  let showContent = 10;
+  let showButton = 5;
+  let maxPage = Math.ceil(numOfContent/showContent)+1;
 
   function makebutton(){
     let arr = []
@@ -76,18 +79,6 @@ export function Board( {search} ){
     }
     return arr
   }
-
-  // for (let i = 0; i < 100; i++){
-  //   let tmp = {
-  //     title: '제목' + i,
-  //     id: 'id' + i,
-  //     time: '시간' + i,
-  //     view: 100,
-  //     idx : i
-  //   };
-  //   paginationarr.push(tmp)
-  // }
-
 
   return(
     <div className = 'board'>

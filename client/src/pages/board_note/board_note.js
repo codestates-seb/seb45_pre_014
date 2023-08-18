@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { useEffect, useState } from 'react';//답변하기 누르면 리렌더링 되야함
+import { useEffect, useState } from 'react';
 import './board_note.css';
 import { Link, useLocation } from 'react-router-dom';
 import axios from 'axios';
@@ -39,7 +39,7 @@ const Line = styled.hr`
 `
 
 const BoardNoteNote = styled.div`
-  height: 50vh;
+  min-height: 30vh;
   text-align: left;
 `
 const BoardNoteReplyCount = styled.h4`
@@ -93,32 +93,40 @@ const DeletePopupButton = styled.button`
 
 const CancelPopupButton = styled.button`
 `
-export function BoardNote(){
+export function BoardNote({boardNoteData, setBoardNoteData}){
   const [deletepopup, setdeletepopup] = useState(false);
-  const [boardNoteData, setBoardNoteData] = useState([]);
-  const [boardNotemyreply, setboardNotemyreply] = useState('');
-  const [isMyBoard, setIsMyBoard] = useState(false);
+  
+  const [boardNotemyreply, setboardNotemyreply] = useState('')
+  const [isMyBoard, setIsMyBoard] = useState(true);
   let param = useLocation();
   console.log(param.search.split('=')[1])
   let questionId = param.search.split('=')[1]
-  let userId = null;
   useEffect(() => {
-     axios.get(`https://7e9b-116-38-208-5.ngrok-free.app/questions/2`,{ withCredentials: true })
+     axios.get(`https://7e9b-116-38-208-5.ngrok-free.app/questions/${boardNoteData.questionId}`,{ withCredentials: true })
      .then((res) =>{
-      console.log([res.data.data])
-      setBoardNoteData(res.data.data);
-      console.log(boardNoteData)
-      console.log(boardNoteData.title)
+      setBoardNoteData((preDate)=>{return{...preDate,
+        title:res.data.data.title,
+        questionId:res.data.data.questionId,
+        content:res.data.data.content,
+        createdAt:res.data.data.createdAt,
+        memberId:res.data.data.memberId,
+        email:res.data.data.email,
+        membername:res.data.data.membername,
+        answers:res.data.data.answers
+      }});
+      console.log(res.data.data);
+      console.log(boardNoteData);
       //  let userId = localStorage.getItem("memberId");
-      // if (userId === boardNoteData.memberId){
+      // if (userId === bodardNoteData.memberId){
       //   setIsMyBoard(true);
       // }else{
       //   setIsMyBoard(false)
       // }
     })
+    
     .catch(console.log('error'))
     
-  },[boardNoteData]);
+  },[isMyBoard]);
 
   function boardNotemyreplyPost(){
   //   axios.post(`ttps://7e9b-116-38-208-5.ngrok-free.app/api/v1/questions/${questionId}/answer`,{
@@ -132,22 +140,22 @@ export function BoardNote(){
   return (
     <div className='board_note'>
       <Nav />
-      <div className='board_note_container'>
+      <div className={ boardNoteData.title === '' ? {}:'board_note_container'}>
         <BoardNoteHead>
           <div className='title_andelse'>
             <BoardNoteTitle>{boardNoteData.title}</BoardNoteTitle>
             <BoardNoteElse>{boardNoteData.createdAt}</BoardNoteElse>
           </div>
           <div className='profile_edit_delete_button'>
-            <BoardNoteProfile>{boardNoteData.membername}</BoardNoteProfile>
+            {/* <BoardNoteProfile>{boardNoteData.membername}</BoardNoteProfile> */}
             <div className={isMyBoard? 'edit_delete_button':'edit_delete_button_none'}>
               <Link to='/boardedit'><BoardNoteEdit>수정하기</BoardNoteEdit></Link>
-              <BoardNoteDelete onClick={()=>setdeletepopup(true)}>삭제하기</BoardNoteDelete>
+              <BoardNoteDelete onClick= {()=>setdeletepopup(true)}>삭제하기</BoardNoteDelete>
             </div>
           </div>
         </BoardNoteHead>
         <Line></Line>
-        <BoardNoteNote>{boardNoteData}</BoardNoteNote>
+        <BoardNoteNote>{boardNoteData.content}</BoardNoteNote>
         <BoardNoteReplyCount>답변이 ~개 있습니다.</BoardNoteReplyCount>
         {/* {답변들 위치할 자리} */}
         <BoardNoteReply>대답대답~~~~</BoardNoteReply>

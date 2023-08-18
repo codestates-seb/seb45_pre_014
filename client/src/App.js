@@ -17,9 +17,17 @@ import About from './pages/About';
 
 function App() {
   const [search, setSearch] = useState('');
-  const [boardEditData, setboardEditData] = useState('');
   const [isLogin, setIsLogin] = useState(false);
-  
+  const [boardNoteData, setBoardNoteData] = useState({
+    questionId: 1,
+    title: '',
+    content: "",
+    createdAt: "",
+    memberId: 1,
+    email: "",
+    membername: "",
+    answers: []
+  });
   return (
     <BrowserRouter>
       <div className='App'>
@@ -34,8 +42,8 @@ function App() {
 
           
           <Route path='/boardpost' element={<BoardPost/>}></Route>
-          <Route path='/boardedit' element={<BoardEdit boardEditData = {boardEditData}/>}></Route>
-          <Route path='/boardnote' element={<BoardNote setboardEditData = {setboardEditData}/>}></Route>
+          <Route path='/boardedit' element={<BoardEdit boardNoteData = {boardNoteData} setBoardNoteData={setBoardNoteData}/>}></Route>
+          <Route path='/boardnote' element={<BoardNote boardNoteData = {boardNoteData} setBoardNoteData={setBoardNoteData}/>}></Route>
         </Routes>
       </div>
       <Footer />
