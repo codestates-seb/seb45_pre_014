@@ -44,7 +44,7 @@ export function BoardEdit( {boardNoteData, setBoardNoteData} ){
     axios.patch(`https://7e9b-116-38-208-5.ngrok-free.app/questions/${boardNoteData.questionId}`,{
       title : title,
       content : content,
-    },{headers: {Authorization: localStorage.getItem}})
+    },{headers: {Authorization: localStorage.getItem('access_token')}})
     .then((res)=>console.log(res))
     .catch((res)=>console.log(res))
   }
