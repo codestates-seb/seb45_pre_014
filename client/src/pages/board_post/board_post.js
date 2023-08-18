@@ -39,10 +39,12 @@ export function BoardPost(){
   const [problem, setProblem] = useState('');
 
   function board_post_post(){
+    let memberId = localStorage.getItem('memberId')
+    console.log(memberId)
     axios.post('https://7e9b-116-38-208-5.ngrok-free.app/questions',{
       title : title,
       content : problem,
-      memberId: 7
+      memberId : 1
     })
   }
   return (
