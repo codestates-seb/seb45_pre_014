@@ -95,7 +95,7 @@ const CancelPopupButton = styled.button`
 `
 export function BoardNote(){
   const [deletepopup, setdeletepopup] = useState(false);
-  const [boardNoteData, setBoardNoteData] = useState();
+  const [boardNoteData, setBoardNoteData] = useState([]);
   const [boardNotemyreply, setboardNotemyreply] = useState('');
   const [isMyBoard, setIsMyBoard] = useState(false);
   let param = useLocation();
