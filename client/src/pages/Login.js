@@ -59,7 +59,7 @@ function LoginPage() {
           password,
         };
         axios
-          .post(URL, userInfo)
+          .post(URL, userInfo, { withCredentials: true })
           .then((res) => {
             //Success
             console.log(res);
