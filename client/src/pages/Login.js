@@ -64,7 +64,7 @@ function LoginPage() {
             //Success
             console.log(res);
             
-            const accessToken = res.data.access_token;
+            const accessToken = res.headers.authorization;
             console.log(accessToken)
             localStorage.setItem('access_token', accessToken);
             localStorage.setItem("memberId", res.data.memberId);
