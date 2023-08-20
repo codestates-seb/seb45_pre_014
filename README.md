@@ -58,6 +58,10 @@
 - `feat_BE` : 백엔드 개발 브랜치
 - `feat/개발기능이름/#이슈번호` : 개인 기능 개발 브랜치 ex) `feat/example/#1`
 
+
+
+## 🪄 [API 명세서](https://documenter.getpostman.com/view/27565500/2s9Y5SXRnY)
+
 <br/>
 
 ### <span style=""> ⚙️ **Tools** </span>
