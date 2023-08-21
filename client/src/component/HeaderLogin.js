@@ -5,7 +5,7 @@ import { FaInbox } from "react-icons/fa";
 import { AiFillTrophy, AiFillQuestionCircle } from "react-icons/ai";
 import { GiHamburgerMenu } from "react-icons/gi";
 import SearchBoxModal from "./SearchBoxModal";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 const Header = styled.header`
@@ -166,6 +166,17 @@ const HeaderLogin = ({setIsLogin}) => {
   const handleLogout = () => {
     setIsLogin(false);
     localStorage.clear();
+  };
+
+  const [isFocused, setIsFocused] = useState(false);
+  const memberId = localStorage.getItem("email");
+  const navigate = useNavigate();
+  const handleSearchFocus = () => {
+    setIsFocused(!isFocused);
+  };
+
+  const handleMypage = () => {
+    navigate(`/info/${memberId}`);
   }
 
     return (
@@ -180,18 +191,26 @@ const HeaderLogin = ({setIsLogin}) => {
           <ProductBtn>About</ProductBtn>
         </Link>
         <div className="searchBoxWrap">
-          <SearchBox/>
+          <SearchBox
+            type="text"
+            placeholder="Search..."
+            onFocus={handleSearchFocus}
+            onBlur={handleSearchFocus}
+            className={isFocused ? "searchFocus" : ""}
+            />
           <SearchBoxIcon>
+            <Link to="/board/?page=1">
             <HiMagnifyingGlass size={20} />
+            </Link>
           </SearchBoxIcon>
-          <SearchBoxModal />
+          <SearchBoxModal isFocused={isFocused}/>
         </div>
         <IconsBtnWrap>
           <IconsBtn>
-            <Link to='/info' className="mypageMoveBtn" >
+            <button className="mypageMoveBtn" onClick={handleMypage}>
               <BsPersonCircle size={20} />
               <span className="reputationCount">1</span>
-            </Link>
+            </button>
           </IconsBtn>
           <IconsBtn>
             <IconBtnA>
