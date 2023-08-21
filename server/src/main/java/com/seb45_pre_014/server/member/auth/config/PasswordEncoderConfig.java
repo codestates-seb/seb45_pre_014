@@ -12,3 +12,8 @@ public class PasswordEncoderConfig {
         return PasswordEncoderFactories.createDelegatingPasswordEncoder();
     }
 }
+//<<<<<<< HEAD
+//}
+//=======
+//}
+//>>>>>>> 06ca593ad5e55ffe15d8aa6b9e65b56852f51df9

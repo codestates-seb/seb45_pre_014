@@ -1,4 +1,17 @@
 spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            clientId: 606279912020-m5ahoub3m7hs20rdkd3q7r4rvf97puh7.apps.googleusercontent.com
+
+            clientSecret: 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
+            scope:
+              - email
+              - profile
+
+
   h2:
     console:
       enabled: true
@@ -14,11 +27,11 @@ spring:
 
 
 
-#  datasource:
-#    url: jdbc:mysql://${db_url}/PRE_014?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
-#    username: ${db_username}
-#    password: ${db_password}
-#    driver-class-name: com.mysql.cj.jdbc.Driver
+  #  datasource:
+  #    url: jdbc:mysql://${db_url}/PRE_014?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+  #    username: ${db_username}
+  #    password: ${db_password}
+  #    driver-class-name: com.mysql.cj.jdbc.Driver
 
 
   jpa:
@@ -31,7 +44,7 @@ spring:
       hibernate:
         format_sql: true  # (3) SQL pretty print
   sql:
-   init:
+    init:
       data-locations: classpath*:db/h2/data.sql
 
 
@@ -54,7 +67,7 @@ logging:
         orm:
           jpa: DEBUG
 server:
-#  port: 8085
+  #  port: 8085
   servlet:
     encoding:
       force-response: true
@@ -71,7 +84,3 @@ jwt:
 
 #awsParameterStorePropertySource:   # AWS Systems Manager
 #  enabled: true
-
-
-
-
