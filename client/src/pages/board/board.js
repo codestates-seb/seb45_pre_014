@@ -43,11 +43,12 @@ export function Board( {search, url}){
 
   useEffect(() => {
     if(filter !== 'view'){
-      axios.get(`${url}questions?page=1&size=10`,{ withCredentials: true })
+      axios.get(`${url}questions?page=${page}&size=10`,{ withCredentials: true })
     .then((res) =>{
       console.log(res.data)
       setBoardData(res.data.data)
-      setTotalEle(res.data.pageInfo.totalpage)
+      setTotalEle(res.data.pageInfo.totalElements)
+      console.log(res.data.pageInfo.totalElements)
     })
     .catch(console.log('error'))
     }
