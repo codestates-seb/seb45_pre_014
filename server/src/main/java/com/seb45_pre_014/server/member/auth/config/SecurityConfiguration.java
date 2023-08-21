@@ -80,7 +80,7 @@ public class SecurityConfiguration {
         configuration.setAllowedMethods(Arrays.asList("GET","POST","DELETE","PATCH"));
         configuration.setAllowedHeaders(Arrays.asList("*"));
         configuration.addExposedHeader("Authorization");
-        configuration.addExposedHeader("location");
+        configuration.addExposedHeader("Location");
 
 
 //        configuration.setAllowedOrigins(Arrays.asList("*"));
