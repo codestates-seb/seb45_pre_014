@@ -52,17 +52,17 @@ public class SecurityConfiguration {
                 .formLogin().disable()
                 .httpBasic().disable()
                 .exceptionHandling()  // 추가
-//                .authenticationEntryPoint(new MemberAuthenticationEntryPoint())  // 추가
-//                .accessDeniedHandler(new MemberAccessDeniedHandler())            //  인가되지 않은 사용자의 접근 시 호출될 커스텀 접근 거부 핸들러
+                .authenticationEntryPoint(new MemberAuthenticationEntryPoint())  // 추가
+                .accessDeniedHandler(new MemberAccessDeniedHandler())            //  인가되지 않은 사용자의 접근 시 호출될 커스텀 접근 거부 핸들러
                 .and()
                 .apply(new CustomFilterConfigurer())  // 추가
                 .and()
                 .authorizeHttpRequests(authorize -> authorize
                         .anyRequest().permitAll()
+                )
+                .oauth2Login(oauth2 -> oauth2
+                        .successHandler(new OAuth2MemberSuccessHandler(jwtTokenizer, authorityUtils, memberService))  // (1)
                 );
-//                .oauth2Login(oauth2 -> oauth2
-//                        .successHandler(new OAuth2MemberSuccessHandler(jwtTokenizer, authorityUtils, memberService))  // (1)
-//                );
 
 
         return http.build();
@@ -74,13 +74,13 @@ public class SecurityConfiguration {
         CorsConfiguration configuration = new CorsConfiguration();
 
         configuration.setAllowCredentials(true);
-        configuration.setAllowedOrigins(Arrays.asList("http://localhost:3000", "http://localhost:8080", "http://ec2-3-34-1-255.ap-northeast-2.compute.amazonaws.com:8080",
-                "http://pre014codestates.s3-website.ap-northeast-2.amazonaws.com"));
+        configuration.setAllowedOrigins(Arrays.asList("http://localhost:3000", "http://localhost:8080", "http://pre014codestates.s3-website.ap-northeast-2.amazonaws.com"));
         //configuration.setAllowedOriginPatterns(Arrays.asList("*")); // 모든
         configuration.setAllowedMethods(Arrays.asList("GET","POST","DELETE","PATCH"));
         configuration.setAllowedHeaders(Arrays.asList("*"));
         configuration.addExposedHeader("Authorization");
         configuration.addExposedHeader("Location");
+//        configuration.setExposedHeaders(Arrays.asList("*"));
 
 
 //        configuration.setAllowedOrigins(Arrays.asList("*"));
