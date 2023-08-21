@@ -1,6 +1,6 @@
 package com.seb45_pre_014.server.question.mapper;
 
-import com.seb45_pre_014.server.answer.Answer;
+import com.seb45_pre_014.server.answer.entity.Answer;
 import com.seb45_pre_014.server.member.entity.Member;
 import com.seb45_pre_014.server.question.dto.QuestionDto;
 import com.seb45_pre_014.server.question.dto.QuestionResponseDto;
