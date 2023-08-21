@@ -163,10 +163,9 @@ const LogoutBtn = styled.button`
 `;
 
 const HeaderLogin = () => {
-  const [setIsLogin] = useState(true);
-
-  const logout = () => {
-    setIsLogin(false);
+  const [isLogIn, setIsLogIn] = useState(true);
+  const handleLogout = () => {
+    setIsLogIn(false);
     localStorage.clear();
   }
 
@@ -178,7 +177,7 @@ const HeaderLogin = () => {
             <span>Stack overflow</span>
           </Mainlogo>
         </Link>
-        <Link to="/introduce">
+        <Link to="/About">
           <ProductBtn>About</ProductBtn>
         </Link>
         <div className="searchBoxWrap">
@@ -216,7 +215,9 @@ const HeaderLogin = () => {
             </IconBtnA>
           </IconsBtn>
         </IconsBtnWrap>
-        <LogoutBtn onClick={logout}>Log out</LogoutBtn>
+        <Link to="/">
+        <LogoutBtn onClick={handleLogout}>Log out</LogoutBtn>
+        </Link>
       </HeaderWrap>
     </Header>
     );
