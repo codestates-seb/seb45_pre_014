@@ -83,7 +83,7 @@ function LoginPage( {url, setIsLogin} ) {
   };
 
   const handleGoogleLogin = () => {
-    window.location.href = "/oauth2/authorization/google";
+    window.location.href = "/oauth2/code/google";
   }
 
     return (
