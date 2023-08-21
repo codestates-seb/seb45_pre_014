@@ -4,6 +4,11 @@
     <facet external-system-id="GRADLE" type="web" name="Web">
       <configuration>
         <webroots />
+        <sourceRoots>
+          <root url="file://$MODULE_DIR$/../../server/build/generated/sources/annotationProcessor/java/main" />
+          <root url="file://$MODULE_DIR$/../../server/src/main/java" />
+          <root url="file://$MODULE_DIR$/../../server/src/main/resources" />
+        </sourceRoots>
       </configuration>
     </facet>
   </component>
@@ -27,6 +32,7 @@
     <orderEntry type="library" name="Gradle: org.springframework.boot:spring-boot-devtools:2.7.12" level="project" />
     <orderEntry type="library" name="Gradle: org.mapstruct:mapstruct:1.5.1.Final" level="project" />
     <orderEntry type="library" name="Gradle: com.google.code.gson:gson:2.9.0" level="project" />
+    <orderEntry type="library" name="Gradle: mysql:mysql-connector-java:8.0.28" level="project" />
     <orderEntry type="library" name="Gradle: org.springframework.boot:spring-boot-starter-thymeleaf:2.7.12" level="project" />
     <orderEntry type="library" name="Gradle: org.springframework.boot:spring-boot-starter-security:2.7.12" level="project" />
     <orderEntry type="library" name="Gradle: org.springframework.boot:spring-boot-starter-oauth2-client:2.7.12" level="project" />
@@ -47,6 +53,7 @@
     <orderEntry type="library" name="Gradle: org.springframework:spring-web:5.3.27" level="project" />
     <orderEntry type="library" name="Gradle: org.springframework.boot:spring-boot-autoconfigure:2.7.12" level="project" />
     <orderEntry type="library" name="Gradle: org.springframework.boot:spring-boot:2.7.12" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.protobuf:protobuf-java:3.11.4" level="project" />
     <orderEntry type="library" name="Gradle: org.thymeleaf:thymeleaf-spring5:3.0.15.RELEASE" level="project" />
     <orderEntry type="library" name="Gradle: org.thymeleaf.extras:thymeleaf-extras-java8time:3.0.4.RELEASE" level="project" />
     <orderEntry type="library" name="Gradle: org.springframework.security:spring-security-web:5.7.8" level="project" />
