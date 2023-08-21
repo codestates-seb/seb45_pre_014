@@ -34,14 +34,14 @@ const BoardEditText = styled.textarea`
   width: 70vw;
 `
 
-export function BoardEdit( {boardNoteData, setBoardNoteData} ){
+export function BoardEdit( {boardNoteData, setBoardNoteData, url} ){
   const [title, setTitle] = useState(boardNoteData.title);
   const [content, setProblem] = useState(boardNoteData.content);
 
 
   function board_edit_post(){
     console.log(boardNoteData.questionId, title, content)
-    axios.patch(`https://7e9b-116-38-208-5.ngrok-free.app/questions/${boardNoteData.questionId}`,{
+    axios.patch(`${url}questions/${boardNoteData.questionId}`,{
       title : title,
       content : content,
     },{headers: {Authorization: localStorage.getItem('access_token')}})

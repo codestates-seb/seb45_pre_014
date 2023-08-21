@@ -93,7 +93,7 @@ const DeletePopupButton = styled.button`
 
 const CancelPopupButton = styled.button`
 `
-export function BoardNote({boardNoteData, setBoardNoteData}){
+export function BoardNote({boardNoteData, setBoardNoteData, url}){
   const [deletepopup, setdeletepopup] = useState(false);
   
   const [boardNotemyreply, setboardNotemyreply] = useState('')
@@ -102,7 +102,7 @@ export function BoardNote({boardNoteData, setBoardNoteData}){
   console.log(param.search.split('=')[1])
   let questionId = param.search.split('=')[1]
   useEffect(() => {
-     axios.get(`https://7e9b-116-38-208-5.ngrok-free.app/questions/${boardNoteData.questionId}`,{ withCredentials: true })
+     axios.get(`${url}questions/${boardNoteData.questionId}`,{ withCredentials: true })
      .then((res) =>{
       setBoardNoteData((preDate)=>{return{...preDate,
         title:res.data.data.title,

@@ -5,7 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-function LoginPage() {
+function LoginPage( {url, setIsLogin} ) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [emailError, setEmailError] = useState("");
@@ -42,7 +42,7 @@ function LoginPage() {
     setPassword(e.target.value);
   };
 
-  const URL = `https://7e9b-116-38-208-5.ngrok-free.app/members/login`;
+  const URL = `${url}members/login`;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -63,11 +63,11 @@ function LoginPage() {
           .then((res) => {
             //Success
             console.log(res);
-            
             const accessToken = res.headers.authorization;
             console.log(accessToken)
             localStorage.setItem('access_token', accessToken);
             localStorage.setItem("memberId", res.data.memberId);
+            setIsLogin(true)
             navigate("/Home");
           })
           .catch((error) => {
