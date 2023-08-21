@@ -1,4 +1,16 @@
 spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            clientId: 606279912020-m5ahoub3m7hs20rdkd3q7r4rvf97puh7.apps.googleusercontent.com
+            clientSecret: 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
+            redirect-uri: https://localhost:8080/login/oauth2/code/google
+            scope:
+              - email
+              - profile
+
   h2:
     console:
       enabled: true
@@ -45,5 +57,7 @@ jwt:
   key: dfdfdsgsgdsgsddsggsdgdggdsgdsgdggdgdsgdggddggdsdgsddggdgdsdgsdsgdsgdgsdggdsdgsdgs    # jwt 사용할때 필요 ${JWT_SECRET_KEY}
   access-token-expiration-minutes: 30
   refresh-token-expiration-minutes: 420
+
+
 
 

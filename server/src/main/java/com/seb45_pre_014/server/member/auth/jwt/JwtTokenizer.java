@@ -108,12 +108,5 @@ public class JwtTokenizer {
 
         return key;
     }
-    //로그아웃
-    public void addToTokenBlackList(String jws) {
-        SecretKey key = Keys.hmacShaKeyFor(secretKey.getBytes());
-        Long expirationTime = Jwts.parserBuilder().setSigningKey(key).build().parseClaimsJws(jws)
-                .getBody().get("refreshTokenExpirationMinutes", Long.class);
 
-        tokenBlackList.put(jws, expirationTime);
-    }
 }
