@@ -101,6 +101,3 @@ jar {
 	enabled = true // 기본적으로 JAR 생성을 활성화합니다.
 	exclude('*-plain.jar') // -plain이 붙은 JAR 파일을 제외합니다.
 }
-
-
-

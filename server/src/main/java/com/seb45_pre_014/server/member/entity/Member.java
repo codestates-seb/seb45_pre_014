@@ -42,7 +42,7 @@ public class Member  {
     private List<Comment> comments;
 
 
-    public Member(String membername, String email, String password) {
+    public Member(String membername) {
         this.membername = membername;
         this.email = email;
         this.password = password;

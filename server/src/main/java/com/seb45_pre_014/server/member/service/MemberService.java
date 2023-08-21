@@ -5,41 +5,43 @@ import com.seb45_pre_014.server.exception.ExceptionCode;
 import com.seb45_pre_014.server.member.auth.utils.CustomAuthorityUtils;
 import com.seb45_pre_014.server.member.entity.Member;
 import com.seb45_pre_014.server.member.repository.MemberRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import java.util.List;
 import java.util.Optional;
 
-
+@Transactional
 @Service
+@RequiredArgsConstructor
 public class MemberService {
+
     private final MemberRepository memberRepository;
     private final PasswordEncoder passwordEncoder;
-    private final CustomAuthorityUtils authorityUtils;
 
 
-    public MemberService(MemberRepository memberRepository, PasswordEncoder passwordEncoder, CustomAuthorityUtils authorityUtils) {
-        this.memberRepository = memberRepository;
-        this.passwordEncoder = passwordEncoder;
-        this.authorityUtils = authorityUtils;
-    }
+    /* 회원 가입 */
+        public Member createMember(Member member) {
+            if (member.getPassword() != null) {
+                String encryptedPassword = passwordEncoder.encode(member.getPassword());
+                member.setPassword(encryptedPassword);
+            } else {
+                System.out.println("null");            }
 
-    /* 회원가입 */
-    public Member createMember(Member member) {
-        verifyExistsEmail(member.getEmail());
+            if (!existsEmail(member.getEmail())) {
+                Member savedMember = memberRepository.save(member);
+                return savedMember;
+            }
 
-        //password 암호화
-        String encryptedPassword = passwordEncoder.encode(member.getPassword());
-        member.setPassword(encryptedPassword);
+            return null;
 
-        //DB에 UserRole 저장
-        List<String> roles = authorityUtils.createRoles(member.getEmail());
-        member.setRoles(roles);
+        }
 
-        Member savedMember = memberRepository.save(member);
-        return savedMember;
+        /*주어진 이메일이 있는지*/
+        public boolean existsEmail(String email) {
+        Optional<Member> member = memberRepository.findByEmail(email);
+        return member.isPresent();
     }
 
     /* 회원 정보 수정 */
@@ -55,13 +57,13 @@ public class MemberService {
         return memberRepository.save(findMember);
 
     }
-
+    @Transactional(readOnly = true)
     /* 특정 회원 정보 조회 */
     public Member findMember(long memberId) {
         return findVerifiedMember(memberId);
     }
 
-    @Transactional
+
     /* 회원 정보 삭제 */
     public void deleteMember(long memberId) {
         Member findMember = findVerifiedMember(memberId);
@@ -70,6 +72,7 @@ public class MemberService {
     }
 
     /* 이미 존재하는 회원인지를 검증하는 메서드 */
+    @Transactional(readOnly = true)
     public Member findVerifiedMember(long memberId) {
         Optional<Member> optionalMember =
                 memberRepository.findById(memberId);
@@ -79,11 +82,8 @@ public class MemberService {
         return findMember;
     }
 
-    /* 이미 등록된 이메일인지를 검증하는 메서드 */
-    private void verifyExistsEmail(String email) {
-        Optional<Member> member = memberRepository.findByEmail(email);
-        if (member.isPresent())
-            throw new BusinessLogicException(ExceptionCode.MEMBER_EXISTS);
-    }
+
+
+
 
 }
