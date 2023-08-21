@@ -104,6 +104,7 @@ export function BoardNote({boardNoteData, setBoardNoteData, url}){
   useEffect(() => {
      axios.get(`${url}questions/${questionId}`,{ withCredentials: true })
      .then((res) =>{
+      console.log(res,questionId)
       setBoardNoteData((preDate)=>{return{...preDate,
         title:res.data.data.title,
         questionId:res.data.data.questionId,

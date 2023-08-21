@@ -44,7 +44,7 @@ export function BoardEdit( {boardNoteData, setBoardNoteData, url} ){
     axios.patch(`${url}questions/${boardNoteData.questionId}`,{
       title : title,
       content : content,
-    },{headers: {Authorization: localStorage.getItem('access_token')}})
+    },{ headers: {Authorization: localStorage.getItem('access_token')} })
     .then((res)=>console.log(res))
     .catch((res)=>console.log(res))
   }
