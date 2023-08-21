@@ -4,6 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="9d976471-0f26-40c0-b860-3446526c07f4" name="Changes" comment="">
       <change afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
@@ -11,6 +12,24 @@
       <change beforePath="$PROJECT_DIR$/server/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/server/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/com/seb45_pre_014/server/member/auth/config/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/seb45_pre_014/server/member/auth/config/SecurityConfiguration.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/resources/application.yml" afterDir="false" />
+=======
+    <list default="true" id="9d976471-0f26-40c0-b860-3446526c07f4" name="Changes" comment="Answer merge">
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/seb45_pre_014/server/answer/controller/AnswerController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/seb45_pre_014/server/answer/dto/AnswerPostDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/seb45_pre_014/server/answer/dto/AnswerResponseDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/seb45_pre_014/server/answer/repository/AnswerRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/com/seb45_pre_014/server/answer/service/AnswerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/seb45_pre_014/server/answer/Answer.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/seb45_pre_014/server/answer/entity/Answer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/seb45_pre_014/server/answer/AnswerDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/seb45_pre_014/server/answer/dto/AnswerPatchDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/seb45_pre_014/server/answer/AnswerMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/seb45_pre_014/server/answer/mapper/AnswerMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/seb45_pre_014/server/comment/Comment.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/seb45_pre_014/server/comment/Comment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/seb45_pre_014/server/exception/ExceptionCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/seb45_pre_014/server/exception/ExceptionCode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/seb45_pre_014/server/member/entity/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/seb45_pre_014/server/member/entity/Member.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/seb45_pre_014/server/question/entity/Question.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/seb45_pre_014/server/question/entity/Question.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/com/seb45_pre_014/server/question/mapper/QuestionMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/com/seb45_pre_014/server/question/mapper/QuestionMapper.java" afterDir="false" />
+>>>>>>> 52d262f10363d956ae3eae5adca1e3c60dc6918e
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,23 +49,7 @@
         </task>
         <projects_view>
           <tree_state>
-            <expand>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="server" type="f1a62948:ProjectNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="server" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="server" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-                <item name="build" type="c8890929:TasksNode$1" />
-              </path>
-            </expand>
+            <expand />
             <select />
           </tree_state>
         </projects_view>
@@ -81,7 +84,11 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "ignore_missing_gitignore": "true",
+<<<<<<< HEAD
     "last_opened_file_path": "C:/PreProject3/seb45_pre_014",
+=======
+    "last_opened_file_path": "C:/Users/admin/Desktop/seb45_pre_014-feat_BE",
+>>>>>>> 52d262f10363d956ae3eae5adca1e3c60dc6918e
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -93,11 +100,14 @@
     "settings.editor.selected.configurable": "reference.projectsettings.compiler.annotationProcessors",
     "spring.configuration.checksum": "f388e2a0991e057a0316947c380806f0",
     "vue.rearranger.settings.migration": "true"
+<<<<<<< HEAD
   },
   "keyToStringList": {
     "DatabaseDriversLRU": [
       "mysql"
     ]
+=======
+>>>>>>> 52d262f10363d956ae3eae5adca1e3c60dc6918e
   }
 }]]></component>
   <component name="RecentsManager">
@@ -117,7 +127,7 @@
       <recent name="com.seb45_pre_014.server.member.repository" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.ServerApplication">
+  <component name="RunManager" selected="Application.ServerApplication">
     <configuration name="ServerApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.seb45_pre_014.server.ServerApplication" />
       <module name="server.main" />
@@ -276,5 +286,9 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Answer merge" />
+    <option name="LAST_COMMIT_MESSAGE" value="Answer merge" />
   </component>
 </project>
