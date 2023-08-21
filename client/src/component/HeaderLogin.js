@@ -6,7 +6,7 @@ import { AiFillTrophy, AiFillQuestionCircle } from "react-icons/ai";
 import { GiHamburgerMenu } from "react-icons/gi";
 import SearchBoxModal from "./SearchBoxModal";
 import { Link } from "react-router-dom";
-import { useAuth } from "./AuthContext";
+import { useState } from "react";
 
 const Header = styled.header`
   width: 100%;
@@ -163,7 +163,11 @@ const LogoutBtn = styled.button`
 `;
 
 const HeaderLogin = () => {
-  const { logout } = useAuth();
+  const [isLogIn, setIsLogIn] = useState(true);
+  const handleLogout = () => {
+    setIsLogIn(false);
+    localStorage.clear();
+  }
 
     return (
         <Header>
@@ -173,7 +177,7 @@ const HeaderLogin = () => {
             <span>Stack overflow</span>
           </Mainlogo>
         </Link>
-        <Link to="/introduce">
+        <Link to="/About">
           <ProductBtn>About</ProductBtn>
         </Link>
         <div className="searchBoxWrap">
@@ -211,7 +215,9 @@ const HeaderLogin = () => {
             </IconBtnA>
           </IconsBtn>
         </IconsBtnWrap>
-        <LogoutBtn onClick={logout}>Log out</LogoutBtn>
+        <Link to="/">
+        <LogoutBtn onClick={handleLogout}>Log out</LogoutBtn>
+        </Link>
       </HeaderWrap>
     </Header>
     );
