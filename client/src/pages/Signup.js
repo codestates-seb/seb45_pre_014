@@ -264,7 +264,7 @@ export const InputEl = styled.input`
     box-shadow: ${(props) => props.shadow};
   }
 `;
-const Signup = () => {
+const Signup = ({url}) => {
     const [displayName, setDisplayName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -304,7 +304,7 @@ const Signup = () => {
     };
 
     const navigate = useNavigate();
-    const URL = `https://7e9b-116-38-208-5.ngrok-free.app/members/signup/`;
+    const URL = `${url}members/signup/`;
 
     const formSubmitHandler = (e) => {
         e.preventDefault();

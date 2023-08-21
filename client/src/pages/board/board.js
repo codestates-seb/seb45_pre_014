@@ -33,7 +33,7 @@ margin: 3px;
   cursor: pointer;
 }
 `
-export function Board( {search} ){
+export function Board( {search, url}){
   let pageparam = useLocation();
   console.log(pageparam.search.split('=')[1]);
   const [filter, setfilter] = useState('none');
@@ -43,7 +43,7 @@ export function Board( {search} ){
 
   useEffect(() => {
     if(filter !== 'view'){
-      axios.get(`https://7e9b-116-38-208-5.ngrok-free.app/questions?page=1&size=10`,{ withCredentials: true })
+      axios.get(`${url}questions?page=1&size=10`,{ withCredentials: true })
     .then((res) =>{
       console.log(res.data)
       setBoardData(res.data.data)

@@ -86,10 +86,10 @@ const PostWrap = styled.div`
     margin-top: 30px;
   }
 `;
-const Mypage = () => {
+const Mypage = ({url}) => {
   const memberId = localStorage.getItem("memberId");
   const [membername, setMembername] = useState("");
-  const URL = `/members/${memberId}`;
+  const URL = `${url}members/${memberId}`;
 
   useEffect(() => {
     const  mypageInfo = {

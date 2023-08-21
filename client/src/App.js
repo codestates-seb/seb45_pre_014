@@ -28,22 +28,23 @@ function App() {
     membername: "",
     answers: []
   });
+  const url = 'http://ec2-54-180-29-155.ap-northeast-2.compute.amazonaws.com:8080/';
   return (
     <BrowserRouter>
       <div className='App'>
-        {isLogin? <HeaderLogin />:<HeaderLogout setSearch = {setSearch}/>}
+        {isLogin? <HeaderLogin url={url} />:<HeaderLogout setSearch = {setSearch} url={url}/>}
         <Routes>
-          <Route path='/' element={<LoginPage />} />
-          <Route path='/signup' element={<Signup />} />
-          <Route path='/about' element={<About />} />
-          <Route path='/info' element={<Mypage/>}/>
-          <Route path='/board' element={<Board search = {search}/>} ></Route>
-          <Route path='/home' element={<Home />} />
+          <Route path='/' element={<LoginPage url={url} setIsLogin={setIsLogin}/>} />
+          <Route path='/signup' element={<Signup url={url}/>} />
+          <Route path='/about' element={<About url={url}/>} />
+          <Route path='/info' element={<Mypage url={url}/>}/>
+          <Route path='/board' element={<Board search = {search} url={url}/>} ></Route>
+          <Route path='/home' element={<Home url={url}/>} />
 
           
-          <Route path='/boardpost' element={<BoardPost/>}></Route>
-          <Route path='/boardedit' element={<BoardEdit boardNoteData = {boardNoteData} setBoardNoteData={setBoardNoteData}/>}></Route>
-          <Route path='/boardnote' element={<BoardNote boardNoteData = {boardNoteData} setBoardNoteData={setBoardNoteData}/>}></Route>
+          <Route path='/boardpost' element={<BoardPost url={url}/>}></Route>
+          <Route path='/boardedit' element={<BoardEdit boardNoteData = {boardNoteData} setBoardNoteData={setBoardNoteData} url={url}/>}></Route>
+          <Route path='/boardnote' element={<BoardNote boardNoteData = {boardNoteData} setBoardNoteData={setBoardNoteData} url={url}/>}></Route>
         </Routes>
       </div>
       <Footer />

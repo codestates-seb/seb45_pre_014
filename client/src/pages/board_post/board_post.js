@@ -34,14 +34,14 @@ const BoardPostText = styled.textarea`
   width: 70vw;
 `
 
-export function BoardPost(){
+export function BoardPost({url}){
   const [title, setTitle] = useState('');
   const [problem, setProblem] = useState('');
 
   function board_post_post(){
     let memberId = localStorage.getItem('memberId')
     console.log(memberId)
-    axios.post('https://7e9b-116-38-208-5.ngrok-free.app/questions',{
+    axios.post(`${url}questions`,{
       title : title,
       content : problem,
       memberId : 1
