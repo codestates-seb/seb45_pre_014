@@ -6,7 +6,7 @@ import { AiFillTrophy, AiFillQuestionCircle } from "react-icons/ai";
 import { GiHamburgerMenu } from "react-icons/gi";
 import SearchBoxModal from "./SearchBoxModal";
 import { Link } from "react-router-dom";
-import { useAuth } from "./AuthContext";
+import { useState } from "react";
 
 const Header = styled.header`
   width: 100%;
@@ -163,7 +163,12 @@ const LogoutBtn = styled.button`
 `;
 
 const HeaderLogin = () => {
-  const { logout } = useAuth();
+  const [setIsLogin] = useState(true);
+
+  const logout = () => {
+    setIsLogin(false);
+    localStorage.clear();
+  }
 
     return (
         <Header>
