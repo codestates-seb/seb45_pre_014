@@ -27,7 +27,8 @@ function App() {
     membername: "",
     answers: []
   });
-  const url = 'http://ec2-54-180-29-155.ap-northeast-2.compute.amazonaws.com:8080/';
+  const url = process.env.REACT_APP_API_URL;
+  console.log(url)
   useEffect(()=>{
     if(localStorage.length === 0){
       setIsLogin(false)
