@@ -1,6 +1,6 @@
 package com.seb45_pre_014.server.member.entity;
 
-import com.seb45_pre_014.server.answer.Answer;
+import com.seb45_pre_014.server.answer.entity.Answer;
 import com.seb45_pre_014.server.comment.Comment;
 import com.seb45_pre_014.server.question.entity.Question;
 import lombok.Getter;

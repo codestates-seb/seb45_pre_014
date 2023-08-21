@@ -1,6 +1,6 @@
 package com.seb45_pre_014.server.comment;
 
-import com.seb45_pre_014.server.answer.Answer;
+import com.seb45_pre_014.server.answer.entity.Answer;
 import com.seb45_pre_014.server.member.entity.Member;
 import com.seb45_pre_014.server.question.entity.Question;
 import lombok.AllArgsConstructor;
@@ -35,6 +35,6 @@ public class Comment {
     @JoinColumn(name = "questionId")
     private Question question;
 
-    @OneToOne(mappedBy = "comment", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Answer answer; //답변이 삭제되면 댓글도 삭제되게
+//    @OneToOne(mappedBy = "comment", cascade = CascadeType.ALL, orphanRemoval = true)
+//    private Answer answer; //답변이 삭제되면 댓글도 삭제되게
 }
