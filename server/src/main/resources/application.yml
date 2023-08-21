@@ -12,9 +12,19 @@ spring:
     username: sa
     password: 1234
 
+security:
+    oauth2:
+      client:
+        registration:
+          google:
+            clientId: 606279912020-m5ahoub3m7hs20rdkd3q7r4rvf97puh7.apps.googleusercontent.com
 
+            clientSecret: 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
+            scope:
+              - email
+              - profile
 
-#  datasource:
+  #  datasource:
 #    url: jdbc:mysql://${db_url}/PRE_014?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
 #    username: ${db_username}
 #    password: ${db_password}
