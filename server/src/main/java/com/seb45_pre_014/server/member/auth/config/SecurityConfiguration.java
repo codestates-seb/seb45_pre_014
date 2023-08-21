@@ -75,7 +75,8 @@ public class SecurityConfiguration {
         //configuration.setAllowedOriginPatterns(Arrays.asList("*")); // 모든
         configuration.setAllowedMethods(Arrays.asList("GET","POST","DELETE","PATCH"));
         configuration.setAllowedHeaders(Arrays.asList("*"));
-        configuration.addExposedHeader("Authorization");
+        configuration.addExposedHeader("*");
+
 
 
 //        configuration.setAllowedOrigins(Arrays.asList("*"));
