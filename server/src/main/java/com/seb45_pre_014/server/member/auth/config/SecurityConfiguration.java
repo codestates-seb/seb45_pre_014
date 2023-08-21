@@ -70,11 +70,19 @@ public class SecurityConfiguration {
         CorsConfiguration configuration = new CorsConfiguration();
 
         configuration.setAllowCredentials(true);
-       configuration.setAllowedOrigins(Arrays.asList("http://localhost:3000", "http://localhost:8080","https://7e9b-116-38-208-5.ngrok-free.app"));
+       configuration.setAllowedOrigins(Arrays.asList("http://localhost:3000", "http://localhost:8080", "http://ec2-3-34-1-255.ap-northeast-2.compute.amazonaws.com:8080",
+               "http://pre014codestates.s3-website.ap-northeast-2.amazonaws.com"));
         //configuration.setAllowedOriginPatterns(Arrays.asList("*")); // 모든
         configuration.setAllowedMethods(Arrays.asList("GET","POST","DELETE","PATCH"));
         configuration.setAllowedHeaders(Arrays.asList("*"));
         configuration.addExposedHeader("Authorization");
+
+
+//        configuration.setAllowedOrigins(Arrays.asList("*"));
+//        configuration.setAllowedMethods(Arrays.asList("*"));
+//        configuration.setAllowedHeaders(Arrays.asList("*"));
+//        configuration.setExposedHeaders(Arrays.asList("*"));
+//        configuration.addAllowedHeader("*");
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", configuration); // CORS 설정 등록

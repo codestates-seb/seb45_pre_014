@@ -13,7 +13,16 @@ spring:
     password: 1234
 
 
+
+#  datasource:
+#    url: jdbc:mysql://database-pre-014.ckkl9ngcexhu.ap-northeast-2.rds.amazonaws.com:3306/PRE_014?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+#    username: xx
+#    password: xx
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+
+
   jpa:
+
     defer-datasource-initialization: true
     hibernate:
       ddl-auto: create  # (1) 스키마 자동 생성
@@ -21,10 +30,22 @@ spring:
     properties:
       hibernate:
         format_sql: true  # (3) SQL pretty print
-
   sql:
    init:
       data-locations: classpath*:db/h2/data.sql
+
+
+
+#     database-platform: org.hibernate.dialect.MySQL8Dialect
+#     database: mysql
+#     show-sql: true
+#     hibernate:
+#       ddl-auto: create
+#     properties:
+#       hibernate:
+#         format_sql: true
+
+
 
 logging:
   level:
@@ -45,5 +66,12 @@ jwt:
   key: dfdfdsgsgdsgsddsggsdgdggdsgdsgdggdgdsgdggddggdsdgsddggdgdsdgsdsgdsgdgsdggdsdgsdgs    # jwt 사용할때 필요 ${JWT_SECRET_KEY}
   access-token-expiration-minutes: 30
   refresh-token-expiration-minutes: 420
+
+
+
+#awsParameterStorePropertySource:   # AWS Systems Manager
+#  enabled: true
+
+
 
 
