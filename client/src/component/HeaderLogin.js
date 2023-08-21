@@ -162,10 +162,9 @@ const LogoutBtn = styled.button`
   }
 `;
 
-const HeaderLogin = () => {
-  const [isLogIn, setIsLogIn] = useState(true);
+const HeaderLogin = ({setIsLogin}) => {
   const handleLogout = () => {
-    setIsLogIn(false);
+    setIsLogin(false);
     localStorage.clear();
   }
 

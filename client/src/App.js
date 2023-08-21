@@ -31,7 +31,7 @@ function App() {
   return (
     <BrowserRouter>
       <div className='App'>
-        {isLogin? <HeaderLogin url={url} />:<HeaderLogout setSearch = {setSearch} url={url}/>}
+        {isLogin? <HeaderLogin url={url} setIsLogin = {setIsLogin}/>:<HeaderLogout setSearch = {setSearch} url={url}/>}
         <Routes>
           <Route path='/' element={<LoginPage url={url} setIsLogin={setIsLogin}/>} />
           <Route path='/signup' element={<Signup url={url}/>} />
