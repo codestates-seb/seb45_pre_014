@@ -9,7 +9,7 @@ import { BoardNote } from './pages/board_note/board_note';
 import  HeaderLogout  from './component/HeaderLogout';
 import HeaderLogin from './component/HeaderLogin';
 import  Mypage  from './pages/Mypage';
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Footer from './component/Footer';
 import Home from './pages/Home';
 import About from './pages/About';
@@ -28,6 +28,13 @@ function App() {
     answers: []
   });
   const url = 'http://ec2-54-180-29-155.ap-northeast-2.compute.amazonaws.com:8080/';
+  useEffect(()=>{
+    if(localStorage.length === 0){
+      setIsLogin(false)
+    }else{
+      setIsLogin(true)
+    }
+  },[])
   return (
     <BrowserRouter>
       <div className='App'>

@@ -36,11 +36,11 @@ const OwnerID = styled.div`
 const LastAnswer = styled.div`
   font-size: 12px;
 `
-export function BoardList({title, view, id, time}){
+export function BoardList({title, view, id, time, questionId}){
   return (
       <Board>
         <div className='boardTitle_viewcount_container'>
-        <Link to={`/boardnote/?questionId=${title}`}><BoardTitle>{title}</BoardTitle></Link>
+        <Link to={`/boardnote/?questionId=${questionId}`}><BoardTitle>{title}</BoardTitle></Link>
           <ViewCount>{view}</ViewCount>
         </div>
         <div className='ownerid_lastanswer_container'>

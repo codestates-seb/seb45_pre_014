@@ -102,7 +102,7 @@ export function BoardNote({boardNoteData, setBoardNoteData, url}){
   console.log(param.search.split('=')[1])
   let questionId = param.search.split('=')[1]
   useEffect(() => {
-     axios.get(`${url}questions/${boardNoteData.questionId}`,{ withCredentials: true })
+     axios.get(`${url}questions/${questionId}`,{ withCredentials: true })
      .then((res) =>{
       setBoardNoteData((preDate)=>{return{...preDate,
         title:res.data.data.title,
@@ -116,12 +116,14 @@ export function BoardNote({boardNoteData, setBoardNoteData, url}){
       }});
       console.log(res.data.data);
       console.log(boardNoteData);
-      //  let userId = localStorage.getItem("memberId");
-      // if (userId === bodardNoteData.memberId){
-      //   setIsMyBoard(true);
-      // }else{
-      //   setIsMyBoard(false)
-      // }
+       let email = localStorage.getItem('email');
+       console.log(email,boardNoteData.email)
+      if (email === boardNoteData.email){
+        console.log(email,boardNoteData.memberId)
+        setIsMyBoard(true);
+      }else{
+        setIsMyBoard(false)
+      }
     })
     
     .catch(console.log('error'))
