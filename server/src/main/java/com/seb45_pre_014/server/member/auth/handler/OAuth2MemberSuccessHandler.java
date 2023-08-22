@@ -45,12 +45,18 @@ public class OAuth2MemberSuccessHandler extends SimpleUrlAuthenticationSuccessHa
             redirect(request, response, email, authorities);
         }
 
-        private void saveMember(String email) {
-            Member member = new Member();
-            member.setEmail(email);
-            member.setPassword(generateRandomPassword());
-            memberService.createMember(member);
-        }
+    private void saveMember(String email) {
+        Member member = new Member();
+        member.setEmail(email);
+        member.setMembername(generateMembernameFromEmail(email));
+        member.setPassword(generateRandomPassword());
+        memberService.createMember(member);
+    }
+    private String generateMembernameFromEmail(String email) {
+        String membername = email.split("@")[0];
+        return membername;
+    }
+
     // 임의의 비밀번호 생성
     private String generateRandomPassword() {
         int length = 10;
@@ -110,7 +116,7 @@ public class OAuth2MemberSuccessHandler extends SimpleUrlAuthenticationSuccessHa
                 .scheme("http")
                 .host("http://pre014codestates.s3-website.ap-northeast-2.amazonaws.com")
 //                  .port(8080)
-                .path("/receive-token.html")
+                .path("/oauth2/code/google")
                 .queryParams(queryParams)
                 .build().toUri();
     }
