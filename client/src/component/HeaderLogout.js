@@ -137,9 +137,11 @@ const HeaderLogout = ({setSearch}) => {
         <div className="menu">
           <GiHamburgerMenu />
         </div>
+        <Link to="/home">
         <Mainlogo href="#">
           <span>Stack overflow</span>
         </Mainlogo>
+        </Link>
         <Link to="/About">
           <ProductBtn>About</ProductBtn>
         </Link>
