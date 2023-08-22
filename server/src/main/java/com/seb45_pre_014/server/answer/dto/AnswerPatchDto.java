@@ -6,12 +6,13 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Getter
+@Setter
 public class AnswerPatchDto {
 
-    @Setter
+
     private long answerId;
 
-    private Answer.AnswerStatus answerStatus;
+//    private Answer.AnswerStatus answerStatus;
 
     @NotBlank(message = "내용을 작성해주세요.")
     private String content;

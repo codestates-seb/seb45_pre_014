@@ -19,7 +19,7 @@ spring:
               - email
               - profile
 
-
+#
 #  h2:
 #    console:
 #      enabled: true
