@@ -13,6 +13,7 @@ const MypageWrap = styled.section`
   text-align: left;
   margin: 0 auto;
   padding: 30px;
+  margin-left: 13rem;
 `;
 
 const ProfileBtn = styled.button`
