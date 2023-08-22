@@ -64,9 +64,10 @@ function LoginPage( {url, setIsLogin} ) {
             //Success
             console.log(res);
             const accessToken = res.headers.authorization;
+            const memberId = res.data.memberId
             console.log(accessToken)
             localStorage.setItem('access_token', accessToken);
-            localStorage.setItem('email', email);
+            localStorage.setItem('memberId', memberId);
             setIsLogin(true)
             navigate("/Home");
           })

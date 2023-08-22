@@ -44,7 +44,7 @@ export function BoardPost({url}){
     axios.post(`${url}questions`,{
       title : title,
       content : problem,
-      memberId : 1
+      memberId : memberId
     })
   }
   return (
