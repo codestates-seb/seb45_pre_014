@@ -1,5 +1,4 @@
 import Aside from "../component/Aside";
-import { BoardList } from "../component/BoardList/BoardList";
 import styled from "styled-components";
 import Nav from "../component/Nav";
 
@@ -24,7 +23,6 @@ const Home = () => {
         <Nav />
         <MainContainer>
           <div className="questions">
-            <BoardList />
           </div>
           <div>
             <Aside />

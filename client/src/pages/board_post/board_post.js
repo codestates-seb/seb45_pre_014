@@ -60,7 +60,7 @@ export function BoardPost({url}){
             <BoardPostTextLabel>문제가 무엇인가요?</BoardPostTextLabel>
             <BoardPostText cols="106" rows="20" name='board_post_title' onChange={(event) => setProblem(event.target.value)}></BoardPostText>
           </div>
-          <Link to='/board' className='board_post_question' onClick={board_post_post}>질문하기</Link>
+          <Link to='/board/?page=1' className='board_post_question' onClick={board_post_post}>질문하기</Link>
         </BoardPostForm>
       </main>
     </div>
