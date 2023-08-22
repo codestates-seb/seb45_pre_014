@@ -28,11 +28,23 @@ const BoardNoteProfile = styled.div`
 `
 
 const BoardNoteEdit = styled.button`
-  font-size: 12px;
+  font-size: 11px;
+  background-color: #0a95ff;
+  margin-top: 20px;
+  margin-right: 5px;
+  border: 0.5px gray solid;
+  border-radius: 2px;
+  color: white;
 `
 
 const BoardNoteDelete = styled.button`
-  font-size: 12px;
+  font-size: 11px;
+  background-color: #0a95ff;
+  margin-top: 20px;
+  margin-right: 5px;
+  border: 0.5px gray solid;
+  border-radius: 2px;
+  color: white;
 `
 const Line = styled.hr`
   width: 60vw;
@@ -95,12 +107,12 @@ const CancelPopupButton = styled.button`
 `
 export function BoardNote({boardNoteData, setBoardNoteData, url}){
   const [deletepopup, setdeletepopup] = useState(false);
-  
   const [boardNotemyreply, setboardNotemyreply] = useState('')
   const [isMyBoard, setIsMyBoard] = useState(true);
   let param = useLocation();
   console.log(param.search.split('=')[1])
   let questionId = param.search.split('=')[1]
+
   useEffect(() => {
      axios.get(`${url}questions/${questionId}`,{ withCredentials: true })
      .then((res) =>{
@@ -117,28 +129,39 @@ export function BoardNote({boardNoteData, setBoardNoteData, url}){
       }});
       console.log(res.data.data);
       console.log(boardNoteData);
-       let email = localStorage.getItem('email');
-       console.log(email,boardNoteData.email)
-      if (email === boardNoteData.email){
-        console.log(email,boardNoteData.memberId)
+       let memberId = localStorage.getItem('memberId');
+       console.log(memberId,boardNoteData.memberId)
+      if (parseInt(memberId) === boardNoteData.memberId){
         setIsMyBoard(true);
       }else{
         setIsMyBoard(false)
       }
+      console.log(isMyBoard)
     })
     
     .catch(console.log('error'))
-    
-  },[isMyBoard]);
+  },[]);
 
   function boardNotemyreplyPost(){
-  //   axios.post(`ttps://7e9b-116-38-208-5.ngrok-free.app/api/v1/questions/${questionId}/answer`,{
-  //     content: boardNotemyreply,
-  //     memberId: userId,
-  //     questionId: questionId
-  //   })
+    if(boardNotemyreply !== ''){
+      axios.post(`${url}answers`,{
+      content: boardNotemyreply,
+      memberId: 1,
+      questionId: questionId
+    })}
+    setboardNotemyreply('')
   }
 
+  function notedelete(){
+    console.log(boardNoteData.questionId)
+    console.log(localStorage.getItem('access_token'))
+    console.log(`${url}questions/${boardNoteData.questionId}`)
+    axios.delete(`${url}questions/${boardNoteData.questionId}`,
+    { headers: {Authorization: localStorage.getItem('access_token')}
+   })
+    .then((res)=>console.log(res))
+    .catch((res)=>console.log(res))
+  }
 
   return (
     <div className='board_note'>
@@ -159,21 +182,31 @@ export function BoardNote({boardNoteData, setBoardNoteData, url}){
         </BoardNoteHead>
         <Line></Line>
         <BoardNoteNote>{boardNoteData.content}</BoardNoteNote>
-        <BoardNoteReplyCount>답변이 ~개 있습니다.</BoardNoteReplyCount>
+        <BoardNoteReplyCount>{`답변이 ${boardNoteData.answers.length}개 있습니다.`}</BoardNoteReplyCount>
         {/* {답변들 위치할 자리} */}
-        <BoardNoteReply>대답대답~~~~</BoardNoteReply>
-        <BoardNoteID>idid</BoardNoteID>
+        {boardNoteData.answers.map((ele) => {
+          console.log(ele);
+          return(
+          <>
+            <BoardNoteReply>{ele.content}</BoardNoteReply>
+            <BoardNoteID>{ele.membername}</BoardNoteID>
+          </>
+          )
+        })}
+        
         <BoardNoteMyReplyForm>
           <BoardNoteMyReplyTitle>답변하기</BoardNoteMyReplyTitle>
           <BoardNoteMyReply rows='10' onChange={(ele)=>setboardNotemyreply(ele.target.value)}></BoardNoteMyReply>
-          <Link to={`/boardnote/?questionId=${questionId}`} className = 'boardnotemyreplybuttonlink'><BoardNoteMyReplyButton onClick = { ()=>{ boardNotemyreplyPost(); setboardNotemyreply('')}}>답변하기</BoardNoteMyReplyButton></Link>
+          <Link to={`/boardnote/?questionId=${questionId}`} className = 'boardnotemyreplybuttonlink'>
+            <BoardNoteMyReplyButton onClick = { ()=>{ boardNotemyreplyPost(); setboardNotemyreply(''); }} type='submit'>답변하기</BoardNoteMyReplyButton>
+          </Link>
         </BoardNoteMyReplyForm>
       </div>
       <div className={deletepopup === true ? 'deletepopuptrue' : 'deletepopupfalse'}>
         <DeletePopup>
           <div>삭제 하시겠습니까?</div>
           <div className='delete_popup_buttons'>
-            <Link to='/board/?page=1'><DeletePopupButton>삭제</DeletePopupButton></Link>
+            <Link to='/board/?page=1'><DeletePopupButton onClick={notedelete}>삭제</DeletePopupButton></Link>
             <CancelPopupButton onClick={()=>setdeletepopup(false)}>취소</CancelPopupButton>
           </div>
         </DeletePopup>

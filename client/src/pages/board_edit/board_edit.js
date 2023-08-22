@@ -41,6 +41,7 @@ export function BoardEdit( {boardNoteData, setBoardNoteData, url} ){
 
   function board_edit_post(){
     console.log(boardNoteData.questionId, title, content)
+    
     axios.patch(`${url}questions/${boardNoteData.questionId}`,{
       title : title,
       content : content,
@@ -61,7 +62,7 @@ export function BoardEdit( {boardNoteData, setBoardNoteData, url} ){
             <BoardEditTextLabel>문제가 무엇인가요?</BoardEditTextLabel>
             <BoardEditText value ={content} cols="106" rows="20" name='board_edit_title' onChange={(event) => setProblem(event.target.value)}></BoardEditText>
           </div>
-          <Link to='/boardnote' className='board_edit_question' onClick={board_edit_post}>수정하기</Link>
+          <Link to = {`/boardnote/?questionId=${boardNoteData.questionId}`} className='board_edit_question' onClick={board_edit_post}>수정하기</Link>
         </BoardEditForm>
       </main>
     </div>
