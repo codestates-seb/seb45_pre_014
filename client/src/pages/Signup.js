@@ -322,7 +322,7 @@ const Signup = ({url}) => {
         axios
           .post(URL, userInfo)
           .then((res) => {
-            console.log(res.data);
+            console.log(res);
 
             navigate("/");
           })

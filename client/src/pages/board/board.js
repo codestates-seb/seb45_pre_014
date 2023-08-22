@@ -105,7 +105,7 @@ export function Board( {search, url}){
       <Line></Line>
       <Link to="/boardpost" className='board_question'>질문하기</Link>
       <div className='boardlist_container'>
-      {boardData.map((ele)=><BoardList key={ele.questionId} questionId = {ele.questionId} title = {ele.title} id = {ele.username} time = {ele.createdAt} view = {"no"}/>)}
+      {boardData.map((ele)=><BoardList key={ele.questionId} questionId = {ele.questionId} title = {ele.title} id = {ele.membername} time = {ele.createdAt} view = {"no"}/>)}
       <hr className='line'/>
       {makebutton()}
       </div>
