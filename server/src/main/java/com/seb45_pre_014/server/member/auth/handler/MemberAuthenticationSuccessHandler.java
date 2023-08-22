@@ -50,6 +50,7 @@ public class MemberAuthenticationSuccessHandler implements AuthenticationSuccess
         @Setter
         private class LoginUser{
           private long memberId;
+
         }
     }
 

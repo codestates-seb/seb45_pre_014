@@ -12,9 +12,9 @@ spring:
       client:
         registration:
           google:
-            clientId: [xx]
+            clientId: 606279912020-m5ahoub3m7hs20rdkd3q7r4rvf97puh7.apps.googleusercontent.com
 
-            clientSecret: [xx]
+            clientSecret: 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
             scope:
               - email
               - profile
@@ -81,7 +81,7 @@ mail:
     admin: admin@gmail.com    # jwt 사용할때 필요
 
 jwt:
-  key: [xx]    # jwt 사용할때 필요 ${JWT_SECRET_KEY}
+  key: dfdfdsgsgdsgsddsggsdgdggdsgdsgdggdgdsgdggddggdsdgsddggdgdsdgsdsgdsgdgsdggdsdgsdgs    # jwt 사용할때 필요 ${JWT_SECRET_KEY}
   access-token-expiration-minutes: 30
   refresh-token-expiration-minutes: 420
 
