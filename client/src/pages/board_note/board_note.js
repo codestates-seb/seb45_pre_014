@@ -168,6 +168,9 @@ export function BoardNote({boardNoteData, setBoardNoteData, url}){
     .catch((error)=>console.log(error))
   }
 
+  // function boardnotereplydelete(){
+  //   axios.delete(`${url}answers/${}`)
+  // }
   return (
     <div className='board_note'>
       <Nav />
@@ -196,7 +199,7 @@ export function BoardNote({boardNoteData, setBoardNoteData, url}){
           <>
             <BoardNoteReply>{ele.content}</BoardNoteReply>
             <BoardNoteID>{ele.membername}</BoardNoteID>
-            <BoardNoteReplyDelete className={ele.memberId == memberId ? 'replydeleteon' : 'replydeleteoff'}></BoardNoteReplyDelete>
+            {/* <BoardNoteReplyDelete className={ele.memberId == memberId ? 'replydeleteon' : 'replydeleteoff'} onClick={boardnotereplydelete}></BoardNoteReplyDelete> */}
           </>
           )
         })}
