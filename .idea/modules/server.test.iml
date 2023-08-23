@@ -7,7 +7,7 @@
       </configuration>
     </facet>
   </component>
-  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_11">
+  <component name="NewModuleRootManager">
     <output-test url="file://$MODULE_DIR$/../../server/build/classes/java/test" />
     <exclude-output />
     <content url="file://$MODULE_DIR$/../../server/src/test">
