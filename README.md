@@ -11,7 +11,7 @@
 - **`프로젝트 기간` :** 2023.08.04 - 2023.08.23
 - **`한줄 소개` :** 끝까지 열심히 노력해주신 팀원분들 자랑스럽습니다!!
 - **`팀원` :** 홍기현(팀장), 유주성(부팀장), 김종범, 황현서, 박아름, 김동윤
-- **`배포 링크` :** (http://pre014codestates.s3-website.ap-northeast-2.amazonaws.com)
+- **`배포 링크` :** (http://pre014codestates.s3-website.ap-northeast-2.amazonaws.com) - 왼쪽 상단 About도 클릭해주세요!
 
 
 <br/>
