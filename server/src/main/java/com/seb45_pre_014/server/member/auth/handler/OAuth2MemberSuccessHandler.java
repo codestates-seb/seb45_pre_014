@@ -115,7 +115,7 @@ public class OAuth2MemberSuccessHandler extends SimpleUrlAuthenticationSuccessHa
         return UriComponentsBuilder.newInstance()
                 .scheme("http")
                 .host("pre014codestates.s3-website.ap-northeast-2.amazonaws.com")
-//                  .port(8080)
+                .port(80)
                 .path("/")
                 .queryParams(queryParams)
                 .build().toUri();
