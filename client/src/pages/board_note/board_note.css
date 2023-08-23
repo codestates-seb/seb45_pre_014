@@ -36,3 +36,11 @@
 .edit_delete_button_none{
   display: none;
 }
+
+.replydeleteon{
+
+}
+
+.replydeleteoff{
+  display: none;
+}
