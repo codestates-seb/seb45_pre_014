@@ -1,0 +1,32 @@
+.memberinfo{
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.memberinfo_container{
+  width: 60vw;
+  display: flex;
+  flex-direction: column;
+  margin-left: 10vw;
+  margin-top: 25px;
+
+}
+
+.usericon_username_container{
+  display: flex;
+  flex-direction: row;
+}
+
+.usericon_username_userquit_container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.userchange_userquit_container{
+  display: flex;
+  margin-top: auto;
+}
