@@ -65,6 +65,11 @@ const BoardNoteReply = styled.div`
 const BoardNoteID = styled.div`
   text-align: right;
 `
+
+const BoardNoteReplyDelete = styled.button`
+
+`
+
 const BoardNoteMyReplyForm  = styled.form`
   display: flex;
   flex-direction: column;
@@ -129,8 +134,8 @@ export function BoardNote({boardNoteData, setBoardNoteData, url}){
       }});
       console.log(res.data.data);
       console.log(boardNoteData);
-       let memberId = localStorage.getItem('memberId');
-       console.log(memberId,boardNoteData.memberId)
+      let memberId = localStorage.getItem('memberId');
+      console.log(memberId,boardNoteData.memberId)
       if (parseInt(memberId) === boardNoteData.memberId){
         setIsMyBoard(true);
       }else{
@@ -160,7 +165,7 @@ export function BoardNote({boardNoteData, setBoardNoteData, url}){
     { headers: {Authorization: localStorage.getItem('access_token')}
    })
     .then((res)=>console.log(res))
-    .catch((res)=>console.log(res))
+    .catch((error)=>console.log(error))
   }
 
   return (
@@ -185,11 +190,13 @@ export function BoardNote({boardNoteData, setBoardNoteData, url}){
         <BoardNoteReplyCount>{`답변이 ${boardNoteData.answers.length}개 있습니다.`}</BoardNoteReplyCount>
         {/* {답변들 위치할 자리} */}
         {boardNoteData.answers.map((ele) => {
+          let memberId = localStorage.getItem('memberId');
           console.log(ele);
           return(
           <>
             <BoardNoteReply>{ele.content}</BoardNoteReply>
             <BoardNoteID>{ele.membername}</BoardNoteID>
+            <BoardNoteReplyDelete className={ele.memberId == memberId ? 'replydeleteon' : 'replydeleteoff'}></BoardNoteReplyDelete>
           </>
           )
         })}
